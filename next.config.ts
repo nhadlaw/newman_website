@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // ...other config settings
+  output: "standalone",
 };
 
 export default nextConfig;
