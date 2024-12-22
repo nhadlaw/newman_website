@@ -14,6 +14,14 @@ pnpm dev
 bun dev
 ```
 
+### How to create a Sanity Schema
+1. Create a new schema file in /sanity/schemas called <project-name>-schema.ts
+2. Inside this file, create your schema with desired fields and filed types
+3. Inside /sanity/schemas/index.ts import and add new schemas to the schemas list
+4. Inside sanity/sanity-utils.ts create a new async function to getNewProject where you will write a new groq query with the desired fields that you want to obtain and return client.fetch(query)
+5. To grab this data, import the getNewProject function and call await getNewProject
+6. Add the corresponding newProject type to types/
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
