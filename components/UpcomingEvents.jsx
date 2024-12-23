@@ -1,33 +1,22 @@
 "use client"
 import React from "react";
-import {useIsVisible } from '../src/app/hooks/useIsVisible';
 
 export default function DiagonalGrid({events}) {
-    const { isVisible: isVisibleHeading, elementRef: elementRefHeading } = useIsVisible({
-        root: null, // Use the viewport as the root
-        rootMargin: '0px',
-      });
+    
     return (
     <div>
     <p 
-    ref={elementRefHeading}
-    className={`pt-40 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl transition-transform ease-in duration-1500 ${
-      isVisibleHeading ? 'translate-x-0' : 'translate-x-96'
-    }`}
-    style={{paddingRight: "20px", paddingLeft: "20px"}}>See What It's All About...</p>
+    className={`pt-40 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl`}
+    style={{paddingRight: "20px", paddingLeft: "20px"}}>See What It&apos;s All About...</p>
     <div className="container mx-auto py-8 px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
         {events.map(function (item) { 
-            const {isVisible: newIsVisible, elementRef: newElementRef}= useIsVisible({
-                root: null, // Use the viewport as the root
-                rootMargin: '0px',
-            });          
+                  
             return (
                 <a
                     key={item.event_name}
                     href={item.link}
-                    ref={newElementRef}
-                    className={`transition-transform ease-in duration-700 ${newIsVisible ? 'translate-x-0' : 'translate-x-96'} relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg shadow-lg`}
+                    className={`transition-transform ease-in duration-700 relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg shadow-lg`}
                 >
                     {/* Diagonal background with image */}
                     <div

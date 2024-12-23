@@ -1,6 +1,5 @@
-import { getProjects, getHomepageSlideshowImgs, getTestimonies, getUpcomingEvents, getChurchLituraryOptionsSchema } from "../../sanity/sanity-utils";
+import { getHomepageSlideshowImgs, getTestimonies, getUpcomingEvents } from "../../sanity/sanity-utils";
 import { Project } from "../../types/Project";
-import Image from "next/image";
 import HomepageSlideshow from "../../components/HomepageSlideshow";
 import WeeklyEventsGrid from "../../components/WeeklyEventsGrid";
 import Navbar from '../../components/Navbar';
@@ -15,8 +14,7 @@ export default async function Home() {
   const homepageSlideshowImgs: Project[] = await getHomepageSlideshowImgs();
   const testimonies: Project[] = await getTestimonies();
   const upcomingEvents: Project[] = await getUpcomingEvents();
-  // const churchAndLituragyOptions: Project[] = await getChurchLituraryOptionsSchema();
-  // console.log('CHURCHES: ', churchAndLituragyOptions)
+
   return (
       <div style={{overflowX: "hidden"}}>
         <Navbar/>

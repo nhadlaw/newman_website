@@ -1,7 +1,4 @@
 "use client"
-import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-import {useIsVisible } from '../src/app/hooks/useIsVisible';
 
 const RetreatInfo = () => {
 

@@ -25,7 +25,7 @@ export async function getProjects(): Promise<Project[]> {
 
 }
 
-export async function getHomepageSlideshowImgs(): Promise<Project[]> {
+export async function getHomepageSlideshowImgs() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",
@@ -47,7 +47,7 @@ export async function getHomepageSlideshowImgs(): Promise<Project[]> {
 
 }
 
-export async function getTestimonies(): Promise<Project[]> {
+export async function getTestimonies() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",
@@ -71,7 +71,7 @@ export async function getTestimonies(): Promise<Project[]> {
 }
 
 
-export async function getUpcomingEvents(): Promise<Project[]> {
+export async function getUpcomingEvents() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",
@@ -95,7 +95,7 @@ export async function getUpcomingEvents(): Promise<Project[]> {
 }
 
 
-export async function getChurchLituraryOptionsSchema(): Promise<Project[]> {
+export async function getChurchLituraryOptionsSchema() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",
@@ -137,7 +137,7 @@ export async function getChurchLituraryOptionsSchema(): Promise<Project[]> {
 }
 
 
-export async function getOfficersAndMinisters(): Promise<Project[]> {
+export async function getOfficersAndMinisters() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",

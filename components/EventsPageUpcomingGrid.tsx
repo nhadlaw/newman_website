@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import {useIsVisible } from '../src/app/hooks/useIsVisible';
 
 //NEED TO CHANGE TO GRAB THIS FROM SANITY
 const events = [
@@ -51,7 +50,7 @@ export default function DiagonalGrid() {
             return (
                 <a
                     key={item.event_name}
-                    href={item.link}
+                    href={"/"}
                     className={`h-64 relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg shadow-lg`}
                 >
                     {/* Diagonal background with image */}

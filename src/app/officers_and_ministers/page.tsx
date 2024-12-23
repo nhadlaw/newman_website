@@ -3,29 +3,7 @@ import CampusMinistryDisplay from "../../../components/CampusMinistryDisplay";
 import { getOfficersAndMinisters } from "../../../sanity/sanity-utils";
 import colors from '../../../constants/colors';
 const {oratoryStaffColors, focusStaffColors, execBoardColors} = colors;
-const oratory = [
-    {
-        imgSrc: '/FrThomas.png', // Replace with the person's image path
-        name: 'Fr. Thomas Skamai',
-        contact: 'john.doe@example.com',
-        bgColor: '#00008B',
-        about: 'John is a software developer with a passion for creating user-friendly applications and solving challenging problems.',
-    },
-    {
-        imgSrc: '/HannahNaylorB&W.png', // Replace with the person's image path
-        name: 'Hannah Naylor',
-        contact: 'john.doe@example.com',
-        bgColor: '#FFB302',
-        about: 'John is a software developer with a passion for creating user-friendly applications and solving challenging problems.',
-    },
-    {
-        imgSrc: '/HannahNaylor.png', // Replace with the person's image path
-        name: 'Hannah Naylor',
-        contact: 'john.doe@example.com',
-        bgColor: '#00008B',
-        about: 'John is a software developer with a passion for creating user-friendly applications and solving challenging problems.',
-    }
-]
+
 const eventsQuote = 'Some description about the pittsburgh oratory staff can go here.Some description about the pittsburgh oratory staff can go here. Some description about the pittsburgh oratory staff can go here. Some description about the pittsburgh oratory staff can go here.'
 
 //TODO move these constants to a separate file  
