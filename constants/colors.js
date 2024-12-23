@@ -1,7 +1,9 @@
 
-// const oratoryStaffColors = ["bg-oratory-blue", "bg-oratory-yellow", "bg-oratory-red"]
 
-const oratoryStaffColors = ["bg-oratory-blue", "bg-[#FFD700]", "bg-cmu-maroon", "bg-oratory-blue", "bg-[#FFD700]", "bg-[#8B0000]"]
+const oratoryStaffColors = ["bg-oratory-blue", "bg-oratory-yellow", "bg-oratory-red"]
 
-const focusStaffColors = ["bg-oratory-blue"]
-export default {oratoryStaffColors, focusStaffColors};
+const focusStaffColors = ["bg-focus-color-1", "bg-focus-color-2", "bg-focus-color-3", "bg-focus-color-4"]
+
+const execBoardColors = ["bg-cmu-maroon", "bg-cmu-yellow", "bg-cmu-blue", "bg-cmu-green"]
+
+export default {oratoryStaffColors, focusStaffColors, execBoardColors};

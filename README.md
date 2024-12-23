@@ -13,6 +13,8 @@ pnpm dev
 # or
 bun dev
 ```
+### How to run app
+If your in the root directory, all y
 
 ### How to create a Sanity Schema
 1. Create a new schema file in /sanity/schemas called <project-name>-schema.ts

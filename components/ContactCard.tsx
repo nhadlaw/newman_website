@@ -1,13 +1,8 @@
 // components/ContactCard.js
 
-
-import { useState } from 'react';
-
 const ContactCard = ({ person, bgColor}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  console.log('bg color: ', bgColor)
   return (
-    <div className="w-56 bg-white shadow-lg shadow-md rounded-lg overflow-hidden">
+    <div className="w-56 bg-white shadow-lg shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
       {/* Top Section */}
       <div className="relative h-80 shadow-md">
         {/* Background */}

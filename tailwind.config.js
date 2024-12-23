@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./constants/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -24,9 +25,16 @@ module.exports = {
       },
       colors: {
         'cmu-maroon': '#721C40',
-        'oratory-blue': '#06038D',
+        'oratory-blue': '#00008B',
         'oratory-yellow': '#FFD700',
-        'oratory-red': '#8B0000'
+        'oratory-red': '#8B0000',
+        'focus-color-1':'#e9eaeb',
+        'focus-color-2': '#2fa6ff',
+        'focus-color-3': '#003862',
+        'focus-color-4': '#1d1d1d',
+        'cmu-blue': 'rgb(31,103,226)',
+        'cmu-yellow': 'rgb(255,200,4)',
+        'cmu-green': 'rgb(0,168,107)'
       },
       transitionDuration: {
         '1500': '1500ms', // Add a 1.5-second duration

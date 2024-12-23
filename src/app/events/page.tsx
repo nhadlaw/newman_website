@@ -2,17 +2,20 @@ import PageBanner from "../../../components/PageBanner";
 import EventsPageWeeklyGrid from "../../../components/EventsPageWeeklyGrid";
 import EventsPageUpcomingGrid from "../../../components/EventsPageUpcomingGrid";
 import EventsPageEventHighlights from "../../../components/EventsPageEventHighlights";
+import { getWeeklyEvents } from "../../../sanity/sanity-utils";
 
 const eventsQuote = '"If we wish to be perfect, we have nothing more to do than to perform the ordinary duties of the day well. -St. John Henry Newman"'
 
 export default async function Events() {
+  const weeklyEvents = await getWeeklyEvents();
+  console.log('EVENTS: ', weeklyEvents)
 
   return (
       <div style={{overflowX: "hidden"}}>
           <PageBanner pageName={"Events"} pageDesc={eventsQuote} pageImg={'/EventsPage.jpg'}/>
           <div className="bg-[rgba(114,28,64,0.4)] pb-28">
             <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="text-white pt-28 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p>
-            <EventsPageWeeklyGrid/>
+            <EventsPageWeeklyGrid items={weeklyEvents}/>
           </div>
           <div className="bg-[rgba(255,200,46,0.8)]">
             <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="text-white pt-28 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Upcoming Events</p>
