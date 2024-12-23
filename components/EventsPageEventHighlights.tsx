@@ -1,7 +1,6 @@
 // components/Slideshow.js
 "use client";
 import { useState } from 'react';
-import Image from 'next/image';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
 

@@ -24,7 +24,7 @@ const Saint1 = () => {
         alt="Picture of the author"
         className="rounded-lg pt-16 lg:pl-16"
         />
-        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>"We need something which the world cannot give, and this it is which the Gospel has supplied." <br/>- St. John Henry Newman</span>
+        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>&quot; We need something which the world cannot give, and this it is which the Gospel has supplied.&quot; <br/>- St. John Henry Newman</span>
     </div>
     )
 }

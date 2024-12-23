@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from "next/image";
 
 
-const ExpandableTestimony = ({image, desc, bgColor}) => {
+const ExpandableTestimony = ({image, desc}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleText = () => {
     setIsExpanded(!isExpanded);

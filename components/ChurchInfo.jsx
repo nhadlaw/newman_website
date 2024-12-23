@@ -1,7 +1,5 @@
 "use client";
 import { useState } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
 

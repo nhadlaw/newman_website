@@ -8,7 +8,7 @@ const Testimonies = ({testimonies}) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
             {testimonies.map((item, index) => (
                 <div key={index}>
-                    <ExpandableTestimony image={item.image} desc={item.testimony} bgColor={item.background_color}/>
+                    <ExpandableTestimony image={item.image} desc={item.testimony}/>
                 </div>
             ))}
             </div>

@@ -19,7 +19,7 @@ const Saint2 = () => {
         }`}
     style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
         
-        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>"We need something which the world cannot give, and this it is which the Gospel has supplied." <br/>- St. John Henry Newman</span>
+        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>&quot;We need something which the world cannot give, and this it is which the Gospel has supplied.&quot; <br/>- St. John Henry Newman</span>
         <Image
             src="/PhillipNeri.png"
             width={300}
