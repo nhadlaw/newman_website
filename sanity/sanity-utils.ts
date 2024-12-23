@@ -186,6 +186,31 @@ export async function getOfficersAndMinisters(): Promise<Project[]> {
 
 }
 
+export async function getWeeklyEvents(): Promise<Project[]> {
+    const client = createClient({
+        projectId: "ds40fytf",
+        dataset: "production",
+        apiVersion: "2024-12-18",
+    });
+
+    // type=project indicates this query is going to fetch all of our projects
+    // the fields inside the query is what we are going to be grabbing from inside of it
+    const weeklyEventsQuery = groq`*[_type == "weeklyEvents"]{
+        _id,
+        _createAt,
+        event_name,
+        event_desc,
+        event_location,
+        "image":image.asset->url,
+        event_desc
+    }`
+
+    //ignore the reg squiggly line for weeklyEventsQuery that is just a typescript issue
+    return client.fetch(weeklyEventsQuery)
+
+}
+
+
 
 
 

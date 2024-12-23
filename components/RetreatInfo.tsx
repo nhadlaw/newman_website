@@ -55,7 +55,7 @@ const RetreatInfo = () => {
             {gridItems.map((item, index) => (
               <article
                 key={index}
-                className="border rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex flex-col"
+                className="transform transition-transform duration-300 hover:scale-105 border rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex flex-col"
               >
                 {/* Top Half: Title */}
                 <div className={`${item.color} text-white font-semibold text-3xl py-4 text-center rounded-t-lg`}>

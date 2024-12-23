@@ -3,34 +3,34 @@ import Image from 'next/image';
 import Link from "next/link"; // Use this if you're using Next.js routing.
 
 
-const MassOptions = () => {
+const SacramentOptions = () => {
   const items = [
     {
       imgSrc: '/MassOutline.png', // Replace with your image paths
       alt: 'Mass Outline',
       title: 'Mass',
-      desc: 'See all Mass times',
+      desc: 'See all Mass times near campus',
       divLink: '#massTimes'
     },
     {
       imgSrc: '/ConfessionOutline.png', // Replace with your image paths
       alt: 'Confession Outline',
       title: 'Confession',
-      desc: 'See all Confession options',
+      desc: 'View all Confession options',
       divLink: '#confessionOptions'
     },
     {
       imgSrc: '/EucharistOutline.png', // Replace with your image paths
       alt: 'Eucharist Outline',
       title: 'Divine Office & Devotions',
-      desc: 'See all mass times',
+      desc: 'Check out the Devotion options',
       divLink: '#divineOfficeAndDevotions'
     },
     {
       imgSrc: '/StPaulOutline.png', // Replace with your image paths
       alt: 'Church Outline',
       title: 'Church info',
-      desc: 'See all mass times',
+      desc: 'Find out about our churches',
       divLink: '#churchInfo'
 
     },
@@ -71,4 +71,4 @@ const MassOptions = () => {
   );
 };
 
-export default MassOptions;
+export default SacramentOptions;
