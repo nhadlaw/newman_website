@@ -57,6 +57,7 @@ const ImageCarousel = () => {
           const descOpacity = isCenter ? 'opacity-100' : 'opacity-0';
           return (
             <div 
+                key={index}
                 className={`mb-32 shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${scale} ${zIndex} ${translateX} ${opacity} flex flex-col flex-wrap`}
             > 
              
