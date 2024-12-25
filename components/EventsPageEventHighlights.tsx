@@ -1,100 +1,84 @@
-// components/Slideshow.js
+// // components/Slideshow.js
 "use client";
-import { useState } from 'react';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { useState } from "react";
+
+const images = ['/EventsPage.jpg', '/EventsPage1.png', '/EventsPage2.png', '/EventsPage3.png', '/EventsPage1.png', '/EventsPage.jpg', '/EventsPage1.png', '/EventsPage2.png', '/EventsPage3.png', '/EventsPage1.png']
 
 
-const slides = [
-  {
-    image: '/EventsPage.jpg', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-  {
-    image: '/EventsPage1.png', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-  {
-    image: '/EventsPage2.png', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-  {
-    image: '/EventsPage1.png', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-  {
-    image: '/EventsPage3.png', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-  {
-    image: '/EventsPage.jpg', // Add image paths here
-    title: 'Barn Dance',
-    details: 'Saturday Oct 26th',
-    description: 'The Newman club hosted its annual barn dance with food, limbo contest, apple bobbing, and more! It was a hoot and a half indeed!',
-  },
-];
+const ImageCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-export default function Slideshow() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-  
-    const nextSlide = () => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
-  
-    const prevSlide = () => {
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-  
-    return (
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
-      <div className="relative w-full max-w-screen-lg mx-auto h-[700px] flex mt-8" >
-        <div className='mb-16'>
-            <div className='flex flex-wrap items-center justify-center'>
-                <div style={{width: "80%"}} 
-                className="flex flex-col md:flex-row lg:flex-row xl:flex-row w-full h-[400px]">
-                    {/* Left side (Image) */}
-                    <div className="w-full md:w-2/3">
-                    <img src={slides[currentSlide].image} alt={slides[currentSlide].title} className="w-full h-full object-cover" />
-                    </div>
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-                    {/* Right side (Title and Description) */}
-                    <div className="w-full md:w-1/3 p-8 bg-gray-800 text-white flex flex-col justify-center">
-                    <h2 className="text-3xl font-bold">{slides[currentSlide].title}</h2>
-                    <p className="text-md font-light mb-4">{slides[currentSlide].details}</p>
-                    <p className="text-md">{slides[currentSlide].description}</p>
-                    </div>
-                </div>
-                <div className="flex justify-center mt-4 opacity-0 md:opacity-100 lg:opacity-100 xl:opacity-100">
-                    {slides.map((_, index) => (
-                    <div
-                        key={index}
-                        className={`h-1 w-10 mx-1 ${
-                        index === currentSlide
-                            ? "bg-[#beff46] rounded-xl"
-                            : "bg-gray-300 rounded-xl"
-                        } transition-all duration-500 ease-in-out`}
-                    ></div>
-                    ))}
-                </div>
+  return (
+    <div className="relative w-[2/3] h-[600px] flex items-center overflow-hidden mt-16">
+      {/* Navigation Buttons */}
+     
+
+      {/* Image Container */}
+      <div className="relative flex items-center gap-0 justify-center w-full h-full">
+        <BsArrowLeftCircleFill 
+          style={{position: 'relative', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
+          className="z-30 absolute bottom-8 right-64 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          onClick={handlePrev} />
+        <BsArrowRightCircleFill 
+          style={{position: 'relative', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
+          className="z-30 absolute bottom-8 left-64 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          onClick={handleNext} />
+        {images.map((image, index) => {
+          // Calculate position relative to the currentIndex
+          const position = (index - currentIndex + images.length) % images.length;
+          // Dynamic classes based on position
+          const isCenter = position === 0;
+          const isLeft = position === images.length - 1 || position === 1;
+          // const scale = isCenter ? 'scale-110' : 'scale-0 md:scale-50';
+          const scale = isCenter ? 'scale-110' : isLeft ? 'scale-0 md:scale-75' : 'scale-0 md:scale-50';
+          const zIndex = isCenter ? 'z-20' : isLeft ? 'z-10' : 'z-0';
+          const translateX =
+            position === 0
+              ? 'translate-x-0'
+              : position === 1
+              ? 'translate-x-2/3'
+              : position === 2
+              ? 'translate-x-full'
+              : position === images.length - 2
+              ? '-translate-x-full'
+              : '-translate-x-2/3'
+
+              
+          const opacity = isCenter ? 'opacity-100' : 'opacity-100';
+          const descOpacity = isCenter ? 'opacity-100' : 'opacity-0';
+          return (
+            <div 
+                className={`mb-32 shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${scale} ${zIndex} ${translateX} ${opacity} flex flex-col flex-wrap`}
+            > 
+             
+              <img
+                key={index}
+                src={image}
+                alt={`Slide ${index}`}
+                style={{ maxWidth: '450px' }}
+                className="w-full object-cover rounded-t-xl"
+              />
+               <div className={`shadow-2xl rounded-b-xl w-full p-0 bg-gray-800 text-white flex flex-col justify-center ${descOpacity}}`}>
+                     <h2 className="text-3xl font-bold">{"lides[currentSlide].title"}</h2>
+                    <p className="text-md font-light mb-4">{"slides[currentSlide].details"}</p>
+                   <p className="text-md">{"slides[currentSlide].description"}</p>
+              </div>
             </div>
-    
-            <BsArrowLeftCircleFill 
-            style={{position: 'absolute', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
-            onClick={prevSlide} className="bg-white absolute top-[25%] left-6 transform text-white p-2 rounded-full opacity-100 hover:opacity-100 transition" />
-            <BsArrowRightCircleFill 
-            style={{position: 'absolute', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
-            onClick={nextSlide} className="bg-white sabsolute top-[25%] right-4 transform text-white p-2 rounded-full opacity-100 hover:opacity-100 transition" />
-            
-        </div>
+          );
+        })}
       </div>
-    );
-  }
+    </div>
+  );
+};
+
+export default ImageCarousel;
+
