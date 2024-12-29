@@ -6,7 +6,7 @@ export default function DiagonalGrid({ events }) {
     <div>
       <div className="container mx-auto py-8 px-8">
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4"
           style={{
             justifyItems: "center", // Center items in the grid horizontally
             alignItems: "center", // Center items in the grid vertically
