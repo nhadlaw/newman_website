@@ -4,8 +4,8 @@ import { getOfficersAndMinisters } from "../../../sanity/sanity-utils";
 import colors from '../../../constants/colors';
 const {oratoryStaffColors, focusStaffColors, execBoardColors} = colors;
 
-const staffQuote = '"If we wish to be perfect, we have nothing more to do than to perform the ordinary duties of the day well. -St. John Henry Newman"'
-const oratoryStaffInfo = "Oratorian info";
+const staffQuote = "We are very blessed to have the Oratorian Fathers, FOCUS missionaries, and our fellow classmates on the Exec board that support our club and help build a wonderful community."
+const oratoryStaffInfo = "The Oratorian Fathers are members of the congregation at the Oratory, serving as campus ministers for Carnegie Mellon University, the University of Pittsburgh, and Chatham University. We are also fortunate to have our dedicated Campus Minister, who plays a vital role in fostering community life at the Newman Center and supporting the club. Together, the Oratorian staff has an incredible influence on the vibrant and welcoming community we are proud to call our own, thanks to the Oratory."
 const focusStaffInfo = "FOCUS staff info";
 const execBoardInfo = 'Exec Board Info';
 

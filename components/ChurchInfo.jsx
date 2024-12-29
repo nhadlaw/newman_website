@@ -15,6 +15,7 @@ const slides = [
     details: 'Fifth Ave. at Craig Street, Pittsburgh, PA 15213',
     description: 'info to be added'
   },
+
 ];
 
 export default function Slideshow() {

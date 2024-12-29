@@ -2,21 +2,19 @@ import PageBanner from "../../../components/PageBanner";
 import SacramentOptions from "../../../components/SacramentOptions"
 import ChurchInfo from "../../../components/ChurchInfo";
 import LitAndPrayerOptions from "../../../components/LitAndPrayerOptions";
-// import {getChurchLituraryOptionsSchema } from "../../sanity/sanity-utils";
 import { getChurchLituraryOptionsSchema } from "../../../sanity/sanity-utils";
 import BackToTop from "../../../components/BackToTop";
 
 const description = "So many options for so many churches that are all a walking distance away from campus";
 
-
-const eventsQuote = '"If we wish to be perfect, we have nothing more to do than to perform the ordinary duties of the day well. -St. John Henry Newman"'
+const litAndPrayQuote = '"Christ gave us a prayer to guide us in praying to the Father; and upon this model our own Liturgy is strictly formed" - St. John Henry Newman'
 
 export default async function LitAndPray() {
   const churchAndLituragyOptions = await getChurchLituraryOptionsSchema();
 
   return (
       <div style={{overflowX: "hidden"}}>
-          <PageBanner pageName={"Lituragy & Prayer"} pageDesc={eventsQuote} pageImg={'/LitAndPrayPage.png'}/>
+          <PageBanner pageName={"Lituragy & Prayer"} pageDesc={litAndPrayQuote} pageImg={'/LitAndPrayPage.png'}/>
           <BackToTop/>
           <div className="bg-black pb-28">
             <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold">The Sacraments</p>

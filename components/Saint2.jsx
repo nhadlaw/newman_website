@@ -14,7 +14,7 @@ const Saint2 = ({image, quote, saint}) => {
 
     <div 
     ref={elementRefHeading}
-    className={`transition-opacity ease-in duration-1000 ${
+    className={`mt-16 transition-opacity ease-in duration-1000 ${
         isVisibleHeading ? 'opacity-100' : 'opacity-0'
       }`}
     style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
