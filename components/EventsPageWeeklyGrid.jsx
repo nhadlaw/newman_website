@@ -1,9 +1,7 @@
 export default function EventsPageWeeklyGrid({items}) {
-
     return (
         <div className="p-6 text-white">
-        <h1 className="font-light text-2xl font-bold text-center mb-8">We have numerous weekly events for food, fellowship, service, and more!</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
             {items.map((item, index) => (
               <div
                 key={index}

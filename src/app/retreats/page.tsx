@@ -7,6 +7,8 @@ const eventsQuote = '"If we wish to be perfect, we have nothing more to do than 
 
 const retreatsInfo = "The Catholic Newman Club at CMU hosts one retreat in Ligonier each semester. Join us for a weekend of prayer, rest, and fellowship! Our next retreat will be February 7–9, 2025; theme TBD."
 
+const previousRetreatsInfo = "Check out some of our previous Retreat themes!"
+
 export default async function Retreats() {
 
   return (
@@ -28,7 +30,7 @@ export default async function Retreats() {
         <RetreatInfo/>
         <div className="text-center">
             <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-black pt-28 text-center font-bold text-black text-7xl">Previous Retreats</p>
-            <p className="mb-12 mt-4 font-light pr-24 pl-24 text-xl text-black z-10 relative text-center">{retreatsInfo}</p>
+            <p className="mb-12 mt-4 font-light pr-24 pl-24 text-xl text-black z-10 relative text-center">{previousRetreatsInfo}</p>
         </div>
         <PreviousRetreats/>
       </div>

@@ -16,7 +16,7 @@ const PageBanner = ({pageName, pageImg, pageDesc}) => {
                 <div
                     className="text-center items-center flex flex-col"
                 >
-                    <h1 style={{fontSize: '5.5rem'}} className="relative z-10 font-bold pt-16">{pageName}</h1>
+                    <h1 style={{fontSize: '5.0rem'}} className="relative z-10 font-bold pt-16">{pageName}</h1>
                     <p 
                     style={{width: "70%"}}
                     className="font-light text-xl text-white z-10 relative">{pageDesc}</p>

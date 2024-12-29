@@ -1,7 +1,8 @@
 "use client"
 import React from 'react'
 //icons for slideshow
-import {ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/24/solid'
+import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
+
 //third-party-package for smooth slideshow
 import {Zoom} from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -16,12 +17,12 @@ const HomepageSlideshow = ({imageData}) => {
       infinite: true,
       prevArrow: (
         <div className="ml-10 top-120 md:top-120">
-          <ArrowLeftIcon className="h-8 w-8 text-white cursor-pointer" />
+          <SlArrowLeft className="h-8 w-8 text-white cursor-pointer" />
         </div>
       ),
       nextArrow: (
           <div className="mr-10 top-120 md:top-120">
-              <ArrowRightIcon className="h-8 w-8 text-white cursor-pointer" />
+              <SlArrowRight className="h-8 w-8 text-white cursor-pointer" />
             </div>
       ),
     };
@@ -35,7 +36,6 @@ const HomepageSlideshow = ({imageData}) => {
           </div>
             <p className="inset-y-1/4 lg:inset-y-[300] xl:inset-y-[300] absolute inset-x-1.5 text-center font-bold text-white text-7xl xl:text-8xl">CMU Catholic<br/>
             <span className='font-light inset-y-1/8'>Newman Club</span><br/>
-            {/* <span className='text-xl sm:text-1xl md:text-3xl lg:text-3xl xl:text-3xl font-light inset-x-2/3 pr-2 pl-2'>"We need something which the world cannot give, and this it is which the Gospel has supplied." <br/>- St. John Henry Newman</span> */}
             </p>
         </div>
 

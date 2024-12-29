@@ -7,40 +7,45 @@ const WeeklyEventsGrid = () => {
         { 
             title: "Mass", 
             description: "Multiple opportunities for mass on campus", 
-            linkName: "See More Info!",
-            imageUrl: "/ChurchIconNoBackground.png"
+            linkName: "Find Mass Times",
+            imageUrl: "/MassIcon.png",
+            href: '/lit_and_prayer/#massTimes'
+
         },
         { 
             title: "Food & Friends", 
             description: "Come enjoy a free meal, find fellowship, and build community", 
-            linkName: "See More Info!",
-            imageUrl: "/FriendsIconNoBackground.png" 
+            linkName: "See More Info",
+            imageUrl: "/Food&FriendsIcon.png",
+            href: '/events/#weeklyEvents' 
         },
         { 
             title: "Chit-Chats", 
-            linkName: "See More Info!",
+            linkName: "Learn More",
             description: "Looking for fruitful discussions about the Catholic faith? Got a question?", 
-            imageUrl: "/BubbleIconNoBackground.png"
+            imageUrl: "/DiscussionIcon.png",
+            href: '/events/#weeklyEvents'
         },
         { 
             title: "Service", 
-            linkName: "See More Info!",
+            linkName: "Find Service Opportunities",
             description: "Looking for a way to help out? Find numerous opportunities with us!", 
-            imageUrl: "/ServiceIconNoBackground.png" 
+            imageUrl: "/ServiceIcon.png",
+            href: '/events/#weeklyEvents' 
         },
     ]
 return (
   <>
-  <div>
-        <p className="text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p>
+   <div>
+        {/* <p className="text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p> */}
     </div>
         <div className="container mx-auto py-8 px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {gridItems.map(function (item, index) {
               return (
                 <div
                 key={index}
-                className={`transition-transform ease-in duration-700 p-6 border rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex-col`}
+                className={`transition-transform ease-in duration-700 p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex-col`}
               >
                  <div className="flex items-center mb-4">
                     <img
@@ -52,7 +57,7 @@ return (
                 </div>
                 <p className="text-gray-700 mb-4">{item.description}</p>
                 <Link
-                    href={""}
+                    href={item.href}
                     className="text-blue-600 hover:underline font-medium"
                 >
                 {item.linkName}

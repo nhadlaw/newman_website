@@ -3,7 +3,7 @@ import Image from "next/image";
 import {useIsVisible } from '../src/app/hooks/useIsVisible';
 
 
-const Saint2 = () => {
+const Saint2 = ({image, quote, saint}) => {
     const { isVisible: isVisibleHeading, elementRef: elementRefHeading } = useIsVisible({
         root: null, // Use the viewport as the root
         rootMargin: '0px',
@@ -14,14 +14,14 @@ const Saint2 = () => {
 
     <div 
     ref={elementRefHeading}
-        className={`transition-transform ease-in duration-100 ${
-          isVisibleHeading ? 'translate-x-0' : 'translate-x-96'
-        }`}
+    className={`transition-opacity ease-in duration-1000 ${
+        isVisibleHeading ? 'opacity-100' : 'opacity-0'
+      }`}
     style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
         
-        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>&quot;We need something which the world cannot give, and this it is which the Gospel has supplied.&quot; <br/>- St. John Henry Newman</span>
+        <span style={{fontSize: "40px", width: "65%", fontWeight: "100", textAlign: "center", margin: "auto", paddingTop: "20px"}}>&quot;{quote}&quot; <br/>- {saint}</span>
         <Image
-            src="/PhillipNeri.png"
+            src={image}
             width={300}
             height={300}
             alt="Picture of the author"

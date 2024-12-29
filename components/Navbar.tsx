@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center h-full w-full px-8 2xl:px-16">
                 <Link href="/">
                     <Image
-                        src={"/Logo.png"}
+                        src={"/NewmanLogo.svg"}
                         alt={"Logo"}
                         width="90"
                         height="70"

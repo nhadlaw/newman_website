@@ -1,10 +1,32 @@
-// // components/Slideshow.js
 "use client";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { useState } from "react";
 
-const images = ['/EventsPage.jpg', '/EventsPage1.png', '/EventsPage2.png', '/EventsPage3.png', '/EventsPage1.png', '/EventsPage.jpg', '/EventsPage1.png', '/EventsPage2.png', '/EventsPage3.png', '/EventsPage1.png']
+const images = [
+  "/EventsPage.jpg",
+  "/EventsPage1.png",
+  "/EventsPage2.png",
+  "/EventsPage3.png",
+  "/EventsPage1.png",
+  "/EventsPage.jpg",
+  "/EventsPage1.png",
+  "/EventsPage2.png",
+  "/EventsPage3.png",
+  "/EventsPage1.png",
+];
 
+const captions = [
+  "Barn Dance",
+  "Spring Soiree",
+  "Cultural Potlock",
+  "Red Door",
+  "Chit Chats",
+  "Barn Dance",
+  "Spring Soiree",
+  "Cultural Potlock",
+  "Red Door",
+  "Chit Chats",
+];
 
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,61 +40,80 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="relative w-[2/3] h-[600px] flex items-center overflow-hidden mt-16">
-      {/* Navigation Buttons */}
-     
-
+    <div className="relative w-[2/3] h-[600px] items-center overflow-hidden bottom-8">
       {/* Image Container */}
       <div className="relative flex items-center gap-0 justify-center w-full h-full">
-        <BsArrowLeftCircleFill 
-          style={{position: 'relative', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
-          className="z-30 absolute bottom-8 right-64 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
-          onClick={handlePrev} />
-        <BsArrowRightCircleFill 
-          style={{position: 'relative', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'rgba(31,103,226,1.0)'}}
-          className="z-30 absolute bottom-8 left-64 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
-          onClick={handleNext} />
+        <BsArrowLeftCircleFill
+          style={{
+            position: "relative",
+            filter: "drop-shadow(0px 0px 3px #555)",
+            width: "3rem",
+            height: "3rem",
+            color: "rgba(31,103,226,1.0)",
+          }}
+          className="z-30 absolute top-56 right-4 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          onClick={handlePrev}
+        />
+        <BsArrowRightCircleFill
+          style={{
+            position: "relative",
+            filter: "drop-shadow(0px 0px 3px #555)",
+            width: "3rem",
+            height: "3rem",
+            color: "rgba(31,103,226,1.0)",
+          }}
+          className="z-30 absolute top-56 left-4 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          onClick={handleNext}
+        />
         {images.map((image, index) => {
-          // Calculate position relative to the currentIndex
           const position = (index - currentIndex + images.length) % images.length;
-          // Dynamic classes based on position
           const isCenter = position === 0;
           const isLeft = position === images.length - 1 || position === 1;
-          // const scale = isCenter ? 'scale-110' : 'scale-0 md:scale-50';
-          const scale = isCenter ? 'scale-110' : isLeft ? 'scale-0 md:scale-75' : 'scale-0 md:scale-50';
-          const zIndex = isCenter ? 'z-20' : isLeft ? 'z-10' : 'z-0';
+          const scale = isCenter ? 'scale-150' : isLeft ? 'scale-0 md:scale-75' : 'scale-0 md:scale-50';
+          const zIndex = isCenter ? "z-10" : "z-0";
           const translateX =
             position === 0
-              ? 'translate-x-0'
+              ? "translate-x-0"
               : position === 1
-              ? 'translate-x-2/3'
+              ? "translate-x-2/3"
               : position === 2
-              ? 'translate-x-full'
+              ? "translate-x-full"
               : position === images.length - 2
-              ? '-translate-x-full'
-              : '-translate-x-2/3'
+              ? "-translate-x-full"
+              : "-translate-x-2/3";
+          const imageOpacity = isCenter ? "opacity-100" : "opacity-30";
 
-              
-          const opacity = isCenter ? 'opacity-100' : 'opacity-100';
-          const descOpacity = isCenter ? 'opacity-100' : 'opacity-0';
           return (
-            <div 
-                key={index}
-                className={`mb-32 shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${scale} ${zIndex} ${translateX} ${opacity} flex flex-col flex-wrap`}
-            > 
-             
+            <div
+              key={index}
+              className={`shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${zIndex} ${translateX} ${scale}`}
+            >
               <img
-                key={index}
                 src={image}
                 alt={`Slide ${index}`}
-                style={{ maxWidth: '450px' }}
-                className="w-full object-cover rounded-t-xl"
+                className={`w-64 md:w-96 rounded-xl ${imageOpacity} transition-all duration-500 ease-in-out`}
               />
-               <div className={`shadow-2xl rounded-b-xl w-full p-0 bg-gray-800 text-white flex flex-col justify-center ${descOpacity}}`}>
-                     <h2 className="text-3xl font-bold">{"lides[currentSlide].title"}</h2>
-                    <p className="text-md font-light mb-4">{"slides[currentSlide].details"}</p>
-                   <p className="text-md">{"slides[currentSlide].description"}</p>
-              </div>
+               {isCenter && (
+                <div
+                  className="absolute top-0 w-full text-white text-left p-4 rounded-t-lg"
+                  style={{
+                    background: "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))",
+                  }}
+                >
+                  <p className="font-bold">{captions[index]}</p>
+                  <p style={{fontSize: '10px'}}>{"Saturday Oct 26th"}</p>
+                </div>
+              )}
+              {isCenter && (
+                <div
+                  className="absolute bottom-0 w-full text-white text-center p-4 rounded-lg"
+                  style={{
+                    background: "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
+                  }}
+                >
+                  <p style={{fontSize: '10px'}}>{"This is our annual barn dance it's so much fun and so much stuff happens at this barn dance because it is so so so much fun over there at Rednal where the barn dance occurs."}</p>
+                </div>
+              )}
             </div>
           );
         })}
@@ -82,4 +123,3 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
-

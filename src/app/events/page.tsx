@@ -2,29 +2,76 @@ import PageBanner from "../../../components/PageBanner";
 import EventsPageWeeklyGrid from "../../../components/EventsPageWeeklyGrid";
 import EventsPageUpcomingGrid from "../../../components/EventsPageUpcomingGrid";
 import EventsPageEventHighlights from "../../../components/EventsPageEventHighlights";
-import { getWeeklyEvents } from "../../../sanity/sanity-utils";
+import { getWeeklyEvents, getUpcomingEvents } from "../../../sanity/sanity-utils";
+import EventsPageButtons from "../../../components/EventsPageButtons";
+import Image from 'next/image';
+import BackToTop from "../../../components/BackToTop";
 
 const eventsQuote = '"If we wish to be perfect, we have nothing more to do than to perform the ordinary duties of the day well. -St. John Henry Newman"'
 
 export default async function Events() {
   const weeklyEvents = await getWeeklyEvents();
-  console.log('EVENTS: ', weeklyEvents)
-
+  const upcomingEvents = await getUpcomingEvents();
   return (
       <div style={{overflowX: "hidden"}}>
           <PageBanner pageName={"Events"} pageDesc={eventsQuote} pageImg={'/EventsPage.jpg'}/>
-          <div className="bg-[rgba(114,28,64,0.4)] pb-28">
-            <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="text-white pt-28 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p>
-            <EventsPageWeeklyGrid items={weeklyEvents}/>
+          <BackToTop/>
+          <EventsPageButtons/>
+          <div className="bg-[rgba(114,28,64,0.4)]" id="weeklyEvents">
+            <div className="flex flex-col pt-48 items-center justify-center align-center">
+              <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="z-10 drop-shadow-[0_8.2px_1.2px_rgba(0,0,0,0.8)] text-white text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p>
+              <div className="flex justify-center space-x-4">
+                <Image
+                  src={'/SacredHeart.png'}
+                  alt="Button Image"
+                  width={250}
+                  height={250}
+                  className="z-0 opacity-80 overflow-hidden relative bottom-56"
+                />
+              </div>
+              <h1 className="z-10 font-light text-2xl font-bold text-center text-white relative bottom-64 w-2/3">We have numerous weekly events for food, fellowship, service, and more! We have numerous weekly events for food, fellowship, service, and more!</h1>
+            </div>
+            <div className="relative bottom-56">
+              <EventsPageWeeklyGrid items={weeklyEvents}/>
+            </div>
           </div>
-          <div className="bg-[rgba(255,200,46,0.8)]">
-            <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="text-white pt-28 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Upcoming Events</p>
-            <EventsPageUpcomingGrid/>
+
+          <div className="bg-[rgba(255,200,46,0.8)]" id="upcomingEvents">
+            <div className="flex flex-col pt-48 items-center justify-center align-center">
+                <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="z-10 drop-shadow-[0_8.2px_1.2px_rgba(0,0,0,0.8)] text-white text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Upcoming Events</p>
+                <div className="flex justify-center space-x-4">
+                  <Image
+                    src={'/ImmaculateHeart.png'}
+                    alt="Button Image"
+                    width={250}
+                    height={250}
+                    className="z-0 opacity-80 overflow-hidden relative bottom-64"
+                  />
+                </div>
+              </div>
+            <div className="relative bottom-64">
+            <EventsPageUpcomingGrid items={upcomingEvents}/>
+            </div>
           </div>
-          <div className="bg-[rgba(31,103,226,0.8)]">
-            <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="text-white pt-28 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Event Highlights</p>
-            <EventsPageEventHighlights/>
+          <div className="bg-[rgba(31,103,226,0.6)]" id="eventHighlights">
+            <div className="flex flex-col pt-48 items-center justify-center align-center">
+                <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="z-10 drop-shadow-[0_8.2px_1.2px_rgba(0,0,0,0.8)] text-white text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Event Highlights</p>
+                <div className="flex justify-center space-x-4">
+                  <Image
+                    src={'/ChasteHeart.png'}
+                    alt="Button Image"
+                    width={250}
+                    height={250}
+                    className="z-0 opacity-80 overflow-hidden relative bottom-56"
+                  />
+                </div>
+                <h1 className="z-10 font-light text-2xl font-bold text-center text-white relative bottom-64 w-2/3">We have numerous weekly events for food, fellowship, service, and more! We have numerous weekly events for food, fellowship, service, and more!</h1>
+              </div>
+            <div className="relative bottom-64">
+              <EventsPageEventHighlights/>
+            </div>
           </div>
       </div>
   );
 }
+// <EventsPageEventHighlights/>

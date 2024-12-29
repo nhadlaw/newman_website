@@ -1,51 +1,12 @@
 "use client"
 import React from "react";
 
-//NEED TO CHANGE TO GRAB THIS FROM SANITY
-const events = [
-  {
-    event_name: "Newman Night",
-    event_desc: "Sundays @ 7 PM.",
-    event_location: "St. Paul Cathedral Social Hall",
-    image: "/EventsPage.jpg",
-  },
-  {
-    event_name: "Mass on Campus",
-    event_desc: "Mondays @ 5:15 PM.",
-    event_location: "CUC Wright-Rogal Chapel",
-    image: "/EventsPage1.png",
-  },
-  {
-    event_name: "Chit Chats",
-    event_desc: "Thursdays @ 8 PM.",
-    event_location: "Highmark Center Well-Being Lab",
-    image: "/EventsPage2.png",
-  },
-  {
-    event_name: "Womens Bible Study",
-    event_desc: "Contact a Missionary",
-    event_location: "TBD",
-    image: "/EventsPage3.png",
-  },
-  {
-    event_name: "Mens Bible Study",
-    event_desc: "Contact A missionary.",
-    event_location: "St. Paul Cathedral Basement",
-    image: "/EventsPage2.png",
-  },
-  {
-    event_name: "Red Door",
-    event_desc: "Thursdays & Fridays time TBD.",
-    event_location: "St. Mary of Mercy Divine Parish",
-    image: "/EventsPage1.png",
-  },
-];
-export default function DiagonalGrid() {
+export default function DiagonalGrid({items}) {
     return (
     <div>
     <div className="container mx-auto py-8 px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-        {events.map(function (item) { 
+        {items.map(function (item) { 
           
             return (
                 <a
