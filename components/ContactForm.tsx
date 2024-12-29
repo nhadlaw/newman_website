@@ -18,7 +18,7 @@ const Contact: FC = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center m-8">
       <div className='w-96'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='mb-5'>
