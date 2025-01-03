@@ -12,7 +12,6 @@ const litAndPrayerOptions = ({items, bgColor, heading, description, informationT
   return (
       <div>
         <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold text-black text-7xl">{heading}</p>
-        <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '1rem'}} className="text-white pt-2 text-center font-light text-black ">{description}</p>
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 py-6 px-6">
             {items.map((item, index) => (
                 item[informationToGrab] && 
