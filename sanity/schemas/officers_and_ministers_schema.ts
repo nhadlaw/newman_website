@@ -42,8 +42,37 @@ const officersAndMinisters = {
                                 type: 'string'
                             },
                             {
+                                name: 'fun_fact',
+                                title: 'Fun Fact',
+                                type: 'string'
+                            },
+                            {
+                                name: 'hometown',
+                                title: 'Hometown',
+                                type: 'string'
+                            },
+                            {
+                                name: 'fav_quote',
+                                title: 'Favorite Quote',
+                                type: 'string'
+                            },
+                            {
                                 name: 'image',
                                 title: 'Staff Image',
+                                type: 'image',
+                                options: { hotspot: true },
+                                fields: [
+                                    {
+                                        name: 'alt',
+                                        title: 'Alt',
+                                        type: 'string'
+                                    }
+                    
+                                ]
+                            },
+                            {
+                                name: 'image_with_background',
+                                title: 'Staff Image With Background',
                                 type: 'image',
                                 options: { hotspot: true },
                                 fields: [
@@ -100,8 +129,37 @@ const officersAndMinisters = {
                                 type: 'string'
                             },
                             {
+                                name: 'fun_fact',
+                                title: 'Fun Fact',
+                                type: 'string'
+                            },
+                            {
+                                name: 'hometown',
+                                title: 'Hometown',
+                                type: 'string'
+                            },
+                            {
+                                name: 'fav_quote',
+                                title: 'Favorite Quote',
+                                type: 'string'
+                            },
+                            {
                                 name: 'image',
                                 title: 'Staff Image',
+                                type: 'image',
+                                options: { hotspot: true },
+                                fields: [
+                                    {
+                                        name: 'alt',
+                                        title: 'Alt',
+                                        type: 'string'
+                                    }
+                    
+                                ]
+                            },
+                            {
+                                name: 'image_with_background',
+                                title: 'Staff Image With Background',
                                 type: 'image',
                                 options: { hotspot: true },
                                 fields: [
@@ -158,6 +216,21 @@ const officersAndMinisters = {
                                 type: 'string'
                             },
                             {
+                                name: 'fun_fact',
+                                title: 'Fun Fact',
+                                type: 'string'
+                            },
+                            {
+                                name: 'hometown',
+                                title: 'Hometown',
+                                type: 'string'
+                            },
+                            {
+                                name: 'fav_quote',
+                                title: 'Favorite Quote',
+                                type: 'string'
+                            },
+                            {
                                 name: 'image',
                                 title: 'Staff Image',
                                 type: 'image',
@@ -171,7 +244,20 @@ const officersAndMinisters = {
                     
                                 ]
                             },
-
+                            {
+                                name: 'image_with_background',
+                                title: 'Staff Image With Background',
+                                type: 'image',
+                                options: { hotspot: true },
+                                fields: [
+                                    {
+                                        name: 'alt',
+                                        title: 'Alt',
+                                        type: 'string'
+                                    }
+                    
+                                ]
+                            },
                         ]
                       }
                   ]

@@ -7,7 +7,6 @@ import { MdClose } from "react-icons/md"; // Importing close icon from react-ico
 
 export default function CampusMinistryDisplay({people, bgColors}) {
   const [selectedPerson, setSelectedPerson] = useState(null);
-  console.log('bgcolors: ', bgColors)
   const handleCardClick = (person) => {
     setSelectedPerson(person);
   };
@@ -49,7 +48,7 @@ export default function CampusMinistryDisplay({people, bgColors}) {
             {/* Left Half - Image */}
             <div className="w-full sm:w-1/2">
               <img
-                src={selectedPerson.image}
+                src={selectedPerson.image_with_background ? selectedPerson.image_with_background : selectedPerson.image}
                 alt={selectedPerson.name}
                 className="h-full w-full object-cover"
               />
@@ -62,11 +61,11 @@ export default function CampusMinistryDisplay({people, bgColors}) {
               <p className="mt-4 text-gray-700 font-bold text-lg">{"About"}</p>
               <p className="text-gray-700">{selectedPerson.about}</p>
               <p className="mt-4 text-gray-700 font-bold text-lg">{"Fun Fact"}</p>
-              <p className="text-gray-700">{"some random fun fact here"}</p>
+              <p className="text-gray-700">{selectedPerson.fun_fact}</p>
               <p className="mt-4 text-gray-700 font-bold text-lg">{"Hometown"}</p>
-              <p className="text-gray-700">{"Rural Valley, PA"}</p>
+              <p className="text-gray-700">{selectedPerson.hometown}</p>
               <p className="mt-4 text-gray-700 font-bold text-lg">{"Favorite Quote"}</p>
-              <p className="text-gray-700">{`"What Doesn't Kill You Makes You Strong" -Kelly Clarkson`}</p>
+              <p className="text-gray-700">{selectedPerson.fav_quote}</p>
             </div>
 
             {/* Close Button */}

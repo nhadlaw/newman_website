@@ -134,7 +134,11 @@ export async function getOfficersAndMinisters() {
               email,
               additionalInfo,
               about,
-              "image":image.asset->url
+              fun_fact,
+              hometown,
+              fav_quote,
+              "image":image.asset->url,
+              "image_with_background":image_with_background.asset->url
             }
         },
         focusStaff {
@@ -144,7 +148,11 @@ export async function getOfficersAndMinisters() {
               email,
               additionalInfo,
               about,
-              "image":image.asset->url
+              fun_fact,
+              hometown,
+              fav_quote,
+              "image":image.asset->url,
+              "image_with_background":image_with_background.asset->url
             }
         },
         execBoard {
@@ -154,7 +162,11 @@ export async function getOfficersAndMinisters() {
               email,
               additionalInfo,
               about,
-              "image":image.asset->url
+              fun_fact,
+              hometown,
+              fav_quote,
+              "image":image.asset->url,
+              "image_with_background":image_with_background.asset->url
             }
         },
     }`

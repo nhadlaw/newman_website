@@ -12,6 +12,7 @@ const staffQuote = "We are very blessed to have the Oratorian Fathers, FOCUS mis
 export default async function OfficersAndMinistersPage() {
   const officersAndMinisters = await getOfficersAndMinisters();
   const staffDesc = await getStaffDescriptions();
+  console.log('officers and ministers: ', officersAndMinisters)
 
   return (
       <div style={{overflowX: "hidden"}}>
