@@ -1,5 +1,9 @@
 "use client"
 
+
+const retreatsInfoColors = ["bg-[rgba(31,103,226,0.8)]", "bg-[rgba(114,28,64,1.0)]", "bg-[rgba(0,168,107,0.8)]", "bg-[rgba(255,200,46,1.0)]"]
+const retreatsInfoTextColors = ["text-[rgba(31,103,226,0.8)]", "text-[rgba(114,28,64,1.0)]", "text-[rgba(0,168,107,0.8)]", "text-[rgba(255,200,46,1.0)]"]
+
 const RetreatInfo = ({items}) => {
     console.log("retreat info: ", items)
     return (
@@ -11,7 +15,7 @@ const RetreatInfo = ({items}) => {
                 className="transform transition-transform duration-300 hover:scale-105 border rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex flex-col"
               >
                 {/* Top Half: Title */}
-                <div className={`${item.desc_color} text-white font-semibold text-3xl py-4 text-center rounded-t-lg`}>
+                <div className={`${retreatsInfoColors[index]} text-white font-semibold text-3xl py-4 text-center rounded-t-lg`}>
                   {item.desc_title}
                 </div>
     
@@ -28,7 +32,7 @@ const RetreatInfo = ({items}) => {
     
                   {/* Right: Description */}
                   <div className="lg:w-1/2 bg-gray-50 flex flex-col justify-center p-4">
-                    <p className={ `text-2xl font-bold text-center ${item.text_color}`}>{item.desc_subtitle}</p>
+                    <p className={ `text-2xl font-bold text-center ${retreatsInfoTextColors[index]}`}>{item.desc_subtitle}</p>
                     <p className="text-gray-700 mb-4 font-light mt-8">{item.desc}</p>
                   </div>
                 </div>
