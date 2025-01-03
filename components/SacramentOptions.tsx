@@ -29,7 +29,7 @@ const SacramentOptions = () => {
     {
       imgSrc: '/StPaulOutline.svg',
       alt: 'Church Outline',
-      title: 'Church info',
+      title: 'Church Info',
       desc: 'Find out about our churches',
       divLink: '#churchInfo'
 

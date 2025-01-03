@@ -15,6 +15,11 @@ const churchLituragyOptions = {
             options: { source: 'name'}
         },
         {
+            name: 'location_google_maps',
+            title: 'Location Google Maps Link',
+            type: 'string'
+        },
+        {
             name: 'massTimes',
             title: 'Church Mass Times',
             type: 'document',

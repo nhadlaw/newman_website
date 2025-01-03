@@ -85,6 +85,7 @@ export async function getChurchLituraryOptionsSchema() {
         _createAt,
         churchName,
         location,
+        location_google_maps,
         massTimes {
             information[] {
               key,

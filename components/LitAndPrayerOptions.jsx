@@ -1,5 +1,5 @@
-// components/ImageRow.js
 import Image from 'next/image';
+import Link from 'next/link';
 
 const churchImages = {
     'Holy Spirit Byzantine': '/ByzantineOutline.svg',
@@ -31,7 +31,11 @@ const litAndPrayerOptions = ({items, bgColor, heading, description, informationT
                     <div className='flex flex-col'>
                         <div className='text-center'>
                             <p className="text-white p-4 pb-0 w-64 font-bold text-lg sm:text-xl">{item.churchName}</p>
-                            <p className="text-white p-4 pt-0 w-64 font-light text-xs sm:text-md">{item.location}</p>
+                            <Link
+                            href={item.location_google_maps}
+                            >
+                                <p className="text-white p-4 pt-0 w-64 font-light text-xs sm:text-md">{item.location}</p>
+                            </Link>
                             <div 
                             className="mx-auto md:my-2"
                             style={{ backgroundColor: "white", height: "2px", width: "80%", opacity: "50%"}}

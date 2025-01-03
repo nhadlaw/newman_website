@@ -1,10 +1,10 @@
 "use client";
 import { useState } from 'react';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import Link from 'next/link';
 
 export default function Slideshow({slides}) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  console.log('slides ARE: ', slides)
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -29,7 +29,11 @@ export default function Slideshow({slides}) {
         {/* Right side (Title and Description) */}
         <div className={`flex-1 p-8 bg-black text-white flex flex-col justify-center`}>
           <h2 className="text-4xl font-bold">{slides[currentSlide].churchName}</h2>
-          <p className="text-lg font-light mb-4">{slides[currentSlide].location}</p>
+          <Link
+            href={slides[currentSlide].location_google_maps}
+          >
+            <p className="text-lg font-light mb-4">{slides[currentSlide].location}</p>
+          </Link>
           <p className="text-lg">{slides[currentSlide].description}</p>
         </div>
       </div>
