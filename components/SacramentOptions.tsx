@@ -6,28 +6,28 @@ import Link from "next/link"; // Use this if you're using Next.js routing.
 const SacramentOptions = () => {
   const items = [
     {
-      imgSrc: '/MassOutline.png', // Replace with your image paths
+      imgSrc: '/MassOutline.svg',
       alt: 'Mass Outline',
       title: 'Mass',
       desc: 'See all Mass times near campus',
       divLink: '#massTimes'
     },
     {
-      imgSrc: '/ConfessionOutline.png', // Replace with your image paths
+      imgSrc: '/ConfessionOutline.svg',
       alt: 'Confession Outline',
       title: 'Confession',
       desc: 'View all Confession options',
       divLink: '#confessionOptions'
     },
     {
-      imgSrc: '/EucharistOutline.png', // Replace with your image paths
+      imgSrc: '/EucharistOutline.svg',
       alt: 'Eucharist Outline',
       title: 'Divine Office & Devotions',
       desc: 'Check out the Devotion options',
       divLink: '#divineOfficeAndDevotions'
     },
     {
-      imgSrc: '/StPaulOutline.png', // Replace with your image paths
+      imgSrc: '/StPaulOutline.svg',
       alt: 'Church Outline',
       title: 'Church info',
       desc: 'Find out about our churches',

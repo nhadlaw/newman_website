@@ -115,6 +115,11 @@ const churchLituragyOptions = {
 
             ]
         },
+        {
+            name: 'description',
+            title: 'Church Description',
+            type: 'string'
+        },
     ]
 }
 

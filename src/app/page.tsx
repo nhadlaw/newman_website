@@ -8,6 +8,7 @@ import Saint2 from "../../components/Saint2";
 import UpcomingEvents from "../../components/UpcomingEvents";
 import Testimonies from "../../components/Testimonies";
 import ContactForm from "../../components/ContactForm";
+import {useIsVisible } from './hooks/useIsVisible';
 
 
 export default async function Home() {
@@ -27,7 +28,7 @@ export default async function Home() {
         <p className="text-center text-3xl pr-24 pl-24 font-light mt-4">
         Our club has been a continuous presence at CMU for decades. We work in the vineyard with the Oratorian fathers, who administer campus ministry for Carnegie Mellon, the University of Pittsburgh, and Chatham University.
         </p>
-        <Saint1 image={'/JohnHenryNewman.png'} quote={"We need something which the world cannot give, and this it is which the Gospel has supplied."} saint={"St. John Henry Newman"}/>
+        <Saint1 image={'/JohnHenryNewman.svg'} quote={"We need something which the world cannot give, and this it is which the Gospel has supplied."} saint={"St. John Henry Newman"}/>
         <p 
           className={`pt-40 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl`}
           style={{paddingRight: "20px", paddingLeft: "20px"}}>Weekly Events

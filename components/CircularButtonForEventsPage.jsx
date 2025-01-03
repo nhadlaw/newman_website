@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const CircularButton = ({ imageSrc, textInButton, bottomText, bgColor }) => {
   return (
-    <div className={`flex relative items-center justify-center w-72 h-72 border rounded-full bg-white shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-black`}>
+    <div className={`flex relative items-center justify-center w-72 h-72 border rounded-full bg-black shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-white`}>
       <div className="flex relative items-center justify-center w-64 h-64 border-4 rounded-full bg-black bg-opacity-80">
         {/* Circle container */}
 

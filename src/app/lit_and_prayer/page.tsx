@@ -13,11 +13,11 @@ export default async function LitAndPray() {
   const churchAndLituragyOptions = await getChurchLituraryOptionsSchema();
 
   return (
-      <div style={{overflowX: "hidden"}}>
+      <div style={{overflowX: "hidden"}} className="bg-black">
           <PageBanner pageName={"Lituragy & Prayer"} pageDesc={litAndPrayQuote} pageImg={'/LitAndPrayPage.png'}/>
           <BackToTop/>
           <div className="bg-black pb-28">
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold">The Sacraments</p>
+            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '3.5rem'}} className="text-white pt-28 text-center font-bold">The Sacraments</p>
             <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '1rem'}} className="text-white pt-2 text-center font-light text-black ">We are very lucky to have so many of the Sacraments available to us nearby.</p>
             <SacramentOptions/>
           </div>
@@ -33,9 +33,8 @@ export default async function LitAndPray() {
            <div className="bg-black" id="churchInfo">
             <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold text-white text-7xl">Churches in Pittsburgh</p>
             <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '1rem'}} className="text-white pt-2 mb-8 text-center font-light text-white ">So many options for so many churches that are all a walking distance away from campus!</p>
-            <ChurchInfo/>
+            <ChurchInfo slides={churchAndLituragyOptions}/>
           </div>
       </div>
   );
 }
-//other option for background: [rgba(255,200,46,0.6)]

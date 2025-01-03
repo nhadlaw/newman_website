@@ -2,16 +2,15 @@
 import { useState } from 'react';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
-export default function Slideshow({slides}) {
+export default function Slideshow({items}) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  console.log('slides ARE: ', slides)
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1) % items.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + items.length) % items.length);
   };
 
   return (
@@ -20,17 +19,25 @@ export default function Slideshow({slides}) {
         {/* Left side (Image) */}
         <div className="flex-1">
           <img
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].churchName}
+            src={items[currentSlide].image}
+            alt={items[currentSlide].retreat_theme}
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Right side (Title and Description) */}
-        <div className={`flex-1 p-8 bg-black text-white flex flex-col justify-center`}>
-          <h2 className="text-4xl font-bold">{slides[currentSlide].churchName}</h2>
-          <p className="text-lg font-light mb-4">{slides[currentSlide].location}</p>
-          <p className="text-lg">{slides[currentSlide].description}</p>
+        <div className={`flex-1 p-8 ${items[currentSlide].bg_color} text-white flex flex-col justify-center`}>
+          <h2 className="text-4xl font-bold">{items[currentSlide].retreat_theme}</h2>
+          <p className="text-lg font-light mb-4">{items[currentSlide].retreat_semester}</p>
+          <p className="text-lg">{items[currentSlide].retreat_desc}</p>
+          <div>
+            <h2 className="text-2xl font-bold mt-4">{"Talks"}</h2>
+            {(items[currentSlide].retreat_talks).map((talk_name, index) => (
+              <div key={index}>
+                <p className='text-lg'>{talk_name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -48,7 +55,7 @@ export default function Slideshow({slides}) {
 
       {/* Slide Indicators */}
       <div className="opacity-0 md:opacity-100 absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {slides.map((_, index) => (
+        {items.map((_, index) => (
           <div
             key={index}
             className={`h-2 w-2 ${index === currentSlide ? "bg-white" : "bg-gray-300"} rounded transition-all duration-500`}

@@ -2,41 +2,17 @@
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { useState } from "react";
 
-const images = [
-  "/EventsPage.jpg",
-  "/EventsPage1.png",
-  "/EventsPage2.png",
-  "/EventsPage3.png",
-  "/EventsPage1.png",
-  "/EventsPage.jpg",
-  "/EventsPage1.png",
-  "/EventsPage2.png",
-  "/EventsPage3.png",
-  "/EventsPage1.png",
-];
 
-const captions = [
-  "Barn Dance",
-  "Spring Soiree",
-  "Cultural Potlock",
-  "Red Door",
-  "Chit Chats",
-  "Barn Dance",
-  "Spring Soiree",
-  "Cultural Potlock",
-  "Red Door",
-  "Chit Chats",
-];
-
-const ImageCarousel = () => {
+const ImageCarousel = ({items}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log('HIGHLIGHTS: ',)
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   };
 
   return (
@@ -65,10 +41,11 @@ const ImageCarousel = () => {
           className="z-30 absolute top-56 left-4 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
           onClick={handleNext}
         />
-        {images.map((image, index) => {
-          const position = (index - currentIndex + images.length) % images.length;
+        {items.map((item, index) => {
+          const image = item.image;
+          const position = (index - currentIndex + items.length) % items.length;
           const isCenter = position === 0;
-          const isLeft = position === images.length - 1 || position === 1;
+          const isLeft = position === items.length - 1 || position === 1;
           const scale = isCenter ? 'scale-150' : isLeft ? 'scale-0 md:scale-75' : 'scale-0 md:scale-50';
           const zIndex = isCenter ? "z-10" : "z-0";
           const translateX =
@@ -78,7 +55,7 @@ const ImageCarousel = () => {
               ? "translate-x-2/3"
               : position === 2
               ? "translate-x-full"
-              : position === images.length - 2
+              : position === items.length - 2
               ? "-translate-x-full"
               : "-translate-x-2/3";
           const imageOpacity = isCenter ? "opacity-100" : "opacity-30";
@@ -100,8 +77,9 @@ const ImageCarousel = () => {
                     background: "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))",
                   }}
                 >
-                  <p className="font-bold">{captions[index]}</p>
-                  <p style={{fontSize: '10px'}}>{"Saturday Oct 26th"}</p>
+                  <p className="font-bold">{items[index].event_name}</p>
+                  <p style={{fontSize: '10px'}}>{items[index].event_location}</p>
+                  <p style={{fontSize: '10px'}}>{items[index].event_date}</p>
                 </div>
               )}
               {isCenter && (
@@ -111,7 +89,7 @@ const ImageCarousel = () => {
                     background: "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
                   }}
                 >
-                  <p style={{fontSize: '10px'}}>{"This is our annual barn dance it's so much fun and so much stuff happens at this barn dance because it is so so so much fun over there at Rednal where the barn dance occurs."}</p>
+                  <p style={{fontSize: '10px'}}>{items[index].event_desc}</p>
                 </div>
               )}
             </div>

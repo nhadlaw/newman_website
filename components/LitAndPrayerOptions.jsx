@@ -2,14 +2,13 @@
 import Image from 'next/image';
 
 const churchImages = {
-    'Holy Spirit Byzantine': '/ByzantineOutline.png',
-    'The Pittsburgh Oratory': '/OratoryOutline.png',
-    'St. Paul Cathedral': '/StPaulOutline.png',
-    'CMU Wright Rogal': '/HamerschlagOutline.png'
+    'Holy Spirit Byzantine': '/ByzantineOutline.svg',
+    'The Pittsburgh Oratory': '/OratoryOutline.svg',
+    'St. Paul Cathedral': '/StPaulOutline.svg',
+    'CMU Wright Rogal': '/HamerschlagOutline.svg'
 }
 
 const litAndPrayerOptions = ({items, bgColor, heading, description, informationToGrab}) => {
-  console.log('items: ', items)
   return (
       <div>
         <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold text-black text-7xl">{heading}</p>

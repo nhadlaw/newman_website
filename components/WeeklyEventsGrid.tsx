@@ -37,10 +37,9 @@ const WeeklyEventsGrid = () => {
 return (
   <>
    <div>
-        {/* <p className="text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Weekly Events</p> */}
     </div>
         <div className="container mx-auto py-8 px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {gridItems.map(function (item, index) {
               return (
                 <div
