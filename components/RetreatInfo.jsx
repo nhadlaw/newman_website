@@ -16,7 +16,7 @@ const RetreatInfo = ({items}) => {
               >
                 {/* Top Half: Title */}
                 <div className={`${retreatsInfoColors[index]} text-white font-semibold text-3xl py-4 text-center rounded-t-lg`}>
-                  {item.desc_title}
+                  {`${item.desc_title}?`}
                 </div>
     
                 {/* Bottom Half: Split into two parts */}

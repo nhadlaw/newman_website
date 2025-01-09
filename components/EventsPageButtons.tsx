@@ -3,7 +3,7 @@ import Link from "next/link"; // Use this if you're using Next.js routing.
 
 const ButtonRow = () => {
   return (
-    <div className="flex justify-center items-center gap-16 flex-col md:flex-row md:h-[100vh] mt-16 mb-16">
+    <div className="flex justify-center items-center gap-8 flex-wrap sm:flex-row mt-16">
       <Link href={'#weeklyEvents'}>
         <CircularButton
             imageSrc="/ImmaculateHeart.svg"

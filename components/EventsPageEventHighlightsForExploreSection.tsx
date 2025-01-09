@@ -1,11 +1,9 @@
 "use client";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-
-const ImageCarousel = ({items}) => {
+const ImageCarousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log('HIGHLIGHTS: ',)
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
@@ -14,6 +12,12 @@ const ImageCarousel = ({items}) => {
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   };
+
+  // Timer for automatic slide change
+  useEffect(() => {
+    const timer = setInterval(handleNext, 4000); // Change every 4 seconds
+    return () => clearInterval(timer); // Cleanup timer on component unmount
+  }, [items.length]);
 
   return (
     <div className="relative w-[2/3] h-[600px] items-center overflow-hidden bottom-8">
@@ -25,9 +29,9 @@ const ImageCarousel = ({items}) => {
             filter: "drop-shadow(0px 0px 3px #555)",
             width: "3rem",
             height: "3rem",
-            color: "rgba(31,103,226,1.0)",
+            color: "rgba(31,103,226,0.6)",
           }}
-          className="z-30 absolute top-56 right-4 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-56 right-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
           onClick={handlePrev}
         />
         <BsArrowRightCircleFill
@@ -36,9 +40,9 @@ const ImageCarousel = ({items}) => {
             filter: "drop-shadow(0px 0px 3px #555)",
             width: "3rem",
             height: "3rem",
-            color: "rgba(31,103,226,1.0)",
+            color: "rgba(31,103,226,0.6)",
           }}
-          className="z-30 absolute top-56 left-4 z-10 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-56 left-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
           onClick={handleNext}
         />
         {items.map((item, index) => {
@@ -70,7 +74,7 @@ const ImageCarousel = ({items}) => {
                 alt={`Slide ${index}`}
                 className={`w-64 md:w-96 rounded-xl ${imageOpacity} transition-all duration-500 ease-in-out`}
               />
-               {isCenter && (
+              {isCenter && (
                 <div
                   className="absolute top-0 w-full text-white text-left p-4 rounded-t-lg"
                   style={{
@@ -78,8 +82,8 @@ const ImageCarousel = ({items}) => {
                   }}
                 >
                   <p className="font-bold">{items[index].event_name}</p>
-                  <p style={{fontSize: '10px'}}>{items[index].event_location}</p>
-                  <p style={{fontSize: '10px'}}>{items[index].event_date}</p>
+                  <p style={{ fontSize: "10px" }}>{items[index].event_location}</p>
+                  <p style={{ fontSize: "10px" }}>{items[index].event_date}</p>
                 </div>
               )}
               {isCenter && (
@@ -89,7 +93,7 @@ const ImageCarousel = ({items}) => {
                     background: "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
                   }}
                 >
-                  <p style={{fontSize: '10px'}}>{items[index].event_desc}</p>
+                  <p style={{ fontSize: "10px" }}>{items[index].event_desc}</p>
                 </div>
               )}
             </div>
@@ -101,3 +105,4 @@ const ImageCarousel = ({items}) => {
 };
 
 export default ImageCarousel;
+

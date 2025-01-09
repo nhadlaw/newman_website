@@ -1,35 +1,37 @@
-const weeklyEventsSchema = {
-    name: 'weeklyEvents',
-    title: 'Weekly Events',
+const bibleStudySchema = {
+    name: 'bibleStudies',
+    title: 'Bible Study Info',
     type: 'document',
     fields: [
         {
-            name: 'event_name',
-            title: 'Event Name',
+            name: 'study_name',
+            title: 'Bible Study Name',
             type: 'string',
 
         },
         {
-            name: 'event_location',
-            title: 'Event Location',
+            name: 'description',
+            title: 'Bible Study Description',
             type: 'string',
 
         },
         {
-            name: 'event_desc',
-            title: 'Event Desc',
-            type: 'array',
-            of: [{type: "block"}]
+            name: 'contact_email',
+            title: 'Bible Study Contact Email',
+            type: 'string',
+
         },
         {
-            name: 'event_link',
-            title: 'Forward Link for Event',
+            name: 'contact_phone',
+            title: 'Bible Study Contact Phone',
             type: 'string',
+
         },
         {
-            name: 'link_name',
-            title: 'Forward Link Name for Event',
+            name: 'contact_name',
+            title: 'Bible Study Contact Name',
             type: 'string',
+
         },
         {
             name: 'image',
@@ -48,4 +50,4 @@ const weeklyEventsSchema = {
     ]
 }
 
-export default weeklyEventsSchema;
+export default bibleStudySchema;

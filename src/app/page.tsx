@@ -1,21 +1,23 @@
-import { getHomepageSlideshowImgs, getTestimonies, getUpcomingEvents } from "../../sanity/sanity-utils";
+import { getBibleStudies, getHomepageSlideshowImgs, getTestimonies, getUpcomingEvents, getWeeklyEvents } from "../../sanity/sanity-utils";
 import { Project } from "../../types/Project";
 import HomepageSlideshow from "../../components/HomepageSlideshow";
 import WeeklyEventsGrid from "../../components/WeeklyEventsGrid";
+import BibleStudy from "../../components/BibleStudy";
 import Navbar from '../../components/Navbar';
 import Saint1 from "../../components/Saint1";
 import Saint2 from "../../components/Saint2";
-import UpcomingEvents from "../../components/UpcomingEvents";
 import Testimonies from "../../components/Testimonies";
 import ContactForm from "../../components/ContactForm";
 import WelcomeText from "../../components/Welcome";
-
+import EventsPageUpcomingGrid from "../../components/EventsPageUpcomingGrid"
 
 export default async function Home() {
 
   const homepageSlideshowImgs: Project[] = await getHomepageSlideshowImgs();
   const testimonies: Project[] = await getTestimonies();
   const upcomingEvents: Project[] = await getUpcomingEvents();
+  const weeklyEvents = await getWeeklyEvents();
+  const bibleStudies = await getBibleStudies();
 
   return (
       <div style={{overflowX: "hidden"}}>
@@ -29,11 +31,13 @@ export default async function Home() {
         </p>
         <WeeklyEventsGrid/>
         <Saint2 image={'/PhillipNeri.png'} quote={"Cast yourself into the arms of God and be very sure that if he wants anything of you, He will fit you for the work and give you strength."} saint={"St. Phillip Neri"}/>
+        <BibleStudy items={bibleStudies}/>
+        <Saint1 image={'/JohnHenryNewman.svg'} quote={"We need something which the world cannot give, and this it is which the Gospel has supplied."} saint={"St. John Henry Newman"}/>
           <p 
           className={`pt-64 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl`}
           style={{paddingRight: "20px", paddingLeft: "20px"}}>See What It&apos;s All About...
         </p>
-        <UpcomingEvents events={upcomingEvents}/>
+        <EventsPageUpcomingGrid items={upcomingEvents}/>
         <Saint1 image={'/JohnHenryNewman2.png'} quote={"The truest wisdom is to stand still and trust in God"} saint={"St. John Henry Newman"}/>
         <p style={{paddingRight: "20px", paddingLeft: "20px"}} className="pt-44 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl">Why Newman?</p>
         <Testimonies testimonies={testimonies}/>

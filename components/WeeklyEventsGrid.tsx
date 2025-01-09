@@ -24,7 +24,7 @@ const WeeklyEventsGrid = () => {
             linkName: "Learn More",
             description: "Looking for fruitful discussions about the Catholic faith? Got a question?", 
             imageUrl: "/DiscussionIcon.png",
-            href: '/events/#weeklyEvents'
+            href: '/events/#chitChatsDisplay'
         },
         { 
             title: "Service", 

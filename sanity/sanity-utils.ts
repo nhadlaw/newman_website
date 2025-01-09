@@ -191,6 +191,8 @@ export async function getWeeklyEvents(): Promise<Project[]> {
         event_name,
         event_desc,
         event_location,
+        event_link,
+        link_name,
         "image":image.asset->url,
         event_desc
     }`
@@ -301,6 +303,54 @@ export async function getStaffDescriptions() {
 
     //ignore the reg squiggly line for staffDescriptionsQuery that is just a typescript issue
     return client.fetch(staffDescriptionsQuery)
+
+}
+
+
+export async function getChitChatsDisplay() {
+    const client = createClient({
+        projectId: "ds40fytf",
+        dataset: "production",
+        apiVersion: "2024-12-18",
+    });
+
+    // type=project indicates this query is going to fetch all of our projects
+    // the fields inside the query is what we are going to be grabbing from inside of it
+    const chitChatsDisplayQuery = groq`*[_type == "chitChatsDisplay"]{
+        _id,
+        _createAt,
+        topic,
+        description,
+        "image":image.asset->url,
+    }`
+
+    //ignore the reg squiggly line for chitChatsDisplayQuery that is just a typescript issue
+    return client.fetch(chitChatsDisplayQuery)
+
+}
+
+export async function getBibleStudies() {
+    const client = createClient({
+        projectId: "ds40fytf",
+        dataset: "production",
+        apiVersion: "2024-12-18",
+    });
+
+    // type=project indicates this query is going to fetch all of our projects
+    // the fields inside the query is what we are going to be grabbing from inside of it
+    const bibleStudiesQuery = groq`*[_type == "bibleStudies"]{
+        _id,
+        _createAt,
+        study_name,
+        description,
+        contact_email,
+        contact_phone,
+        contact_name,
+        "image":image.asset->url,
+    }`
+
+    //ignore the reg squiggly line for bibleStudiesQuery that is just a typescript issue
+    return client.fetch(bibleStudiesQuery)
 
 }
 

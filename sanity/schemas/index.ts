@@ -8,6 +8,8 @@ import eventHighlightsSchema from "./event-highlights-schema";
 import semesterlyRetreatsSchema from "./semesterly-retreats-schema";
 import previousRetreatsSchema from "./previous-retreats-schema";
 import staffDescriptions from "./staff-descriptions-schema";
+import chitChatsDisplay from "./chit-chats-schema";
+import bibleStudySchema from "./bible-study-schema";
 
-const schemas = [homepageSlideshow, testimonies, upcomingEventsSchema, churchLituragyOptions, officersAndMinisters, weeklyEvents, eventHighlightsSchema, semesterlyRetreatsSchema, previousRetreatsSchema, staffDescriptions];
+const schemas = [homepageSlideshow, testimonies, upcomingEventsSchema, churchLituragyOptions, officersAndMinisters, weeklyEvents, eventHighlightsSchema, semesterlyRetreatsSchema, previousRetreatsSchema, staffDescriptions, chitChatsDisplay, bibleStudySchema];
 export default schemas;
