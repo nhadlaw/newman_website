@@ -13,12 +13,13 @@ const AboutFOCUS = ({subheading, missionariesImg, missionariesTxt}) => {
 
 
   return (
-    <div id="aboutFOCUS">
-      <p className={aboutSubheadingStyling}>
-        {subheading}
-      </p>
-      <div className="flex flex-col lg:flex-row mt-16 mx-32 h-[120vh] lg:h-[80vh] mx-32">
-        {/* Slideshow Section */}
+    <div>
+      <div className="px-24">
+        <p className={aboutSubheadingStyling}>
+          {subheading}
+        </p>
+      </div>
+      <div className="flex flex-col lg:flex-row mt-16 mx-32 h-[120vh] lg:h-[80vh]">
         <div className="flex-1 relative overflow-hidden">
           <img
             src={missionariesImg}
@@ -26,8 +27,7 @@ const AboutFOCUS = ({subheading, missionariesImg, missionariesTxt}) => {
             className={`absolute w-full h-full object-cover object-top transition-opacity duration-700 opacity-100`}
           />
         </div>
-        {/* Text Section */}
-        <div className="flex-1 bg-indigo-700 p-8 flex flex-col justify-center">
+        <div className="flex-1 bg-cmu-maroon-darker p-8 flex flex-col justify-center">
           <h1 className="text-4xl font-bold mb-4 text-white">{text.title}</h1>
           <p className="text-lg text-white">{text.description}</p>
           <a

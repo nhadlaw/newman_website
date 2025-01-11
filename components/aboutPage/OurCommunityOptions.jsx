@@ -9,7 +9,7 @@ const OurCommunityOptions = ({ subheading, items }) => {
         rootMargin: '0px',
       });
     return (
-        <div id="aboutOurCommunity" className={`transition-opacity ease-in duration-[700ms] ${
+        <div className={`transition-opacity ease-in duration-[700ms] ${
             isVisible ? 'opacity-100' : 'opacity-0'}`} ref={elementRef}>
             <p className={aboutSubheadingStyling}>{subheading}</p>
             {/* INFO COMPONENTS */}

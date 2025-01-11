@@ -21,31 +21,7 @@ import AboutSEEKHighlights from "../../../components/aboutPage/AboutSEEKHighligh
 import Navbar from "../../../components/Navbar";
 
 
-const serviceOpportunities = [
-    {
-        image: '/Oratory.jpeg',
-        title: 'Red Door',
-        description: 'service desc of some kind to describe this service opportunity and to describe it well and to describe the service opportunity'
-    },
-    {
-        image: '/SlideshowImg1.jpg',
-        title: 'Mission Trips',
-        description: 'service desc of some kind to describe this service opportunity and to describe it well and to describe the service opportunity'
-    },
-    {
-        image: '/LitAndPrayPage.png',
-        title: 'Little Sisters of the Poor',
-        description: 'service desc of some kind to describe this service opportunity and to describe it well and to describe the service opportunity'
-    },
-]
-
-
 export default async function Events() {
-  const weeklyEvents = await getWeeklyEvents();
-  const upcomingEvents = await getUpcomingEvents();
-  const eventHighlights = await getEventHighlights();
-  const chitChats = await getChitChatsDisplay();
-  const allHeaders = await getAllHeadersAndSubHeaders();
   const aboutPageContents = await getAboutPageContents();
   const alumniVocations = await getAlumniVocations();
 
@@ -75,35 +51,42 @@ export default async function Events() {
     },
   ]
 
+  //CMU Maroon rgb: 114, 28, 64
+
   return (
-      <div style={{overflowX: "hidden"}}>
+      <div style={{overflowX: "hidden"}} className='bg-cmu-maroon'>
           <Navbar/>
           <BackToTop/>
           <AboutPageButtons/>
           <AboutPageSection 
-            bgColor={"bg-indigo-500"} 
+            bgColor={"bg-cmu-maroon"} 
             heading={"What is Newman?"} 
+            idRef={"aboutNewman"}
             sectionComponents={[<AboutNewman newmanImg={aboutPageContents[0].what_is_newman_img} newmanTxt={aboutPageContents[0].what_is_newman_text}/>]}
           />
           <AboutPageSection 
-            bgColor={"bg-indigo-600"} 
-            heading={"The Oratory"} 
-            sectionComponents={[<AboutOratory oratoryTxt={aboutPageContents[0].oratory_text} oratoryImgs={aboutPageContents[0].oratory_images}/>]}
-          />
-          <AboutPageSection 
-            bgColor={"bg-indigo-700"} 
+            bgColor={"bg-cmu-maroon"} 
             heading={"Our Community"} 
+            idRef={"aboutOurCommunity"}
             sectionComponents={[<OurCommunityOptions subheading={aboutPageContents[0].our_community_subheading} items={communityItems}/>]
-          }/>
+        }/>
+        <AboutPageSection 
+          bgColor={"bg-cmu-maroon"} 
+          heading={"The Oratory"} 
+          idRef={"aboutOratory"}
+          sectionComponents={[<AboutOratory oratoryTxt={aboutPageContents[0].oratory_text} oratoryImgs={aboutPageContents[0].oratory_images}/>]}
+        />
           <AboutPageSection 
-            bgColor={"bg-indigo-500"} 
+            bgColor={"bg-cmu-maroon"} 
             heading={"Service"} 
+            idRef={"aboutService"}
             sectionComponents={
                 [<AboutService subheading={aboutPageContents[0].service_subheading} discordLink={aboutPageContents[0].service_discord_link} emailLink={aboutPageContents[0].service_email_link} />, 
                 <AboutServiceOpportunities serviceOpportunities={aboutPageContents[0].service_opportunity_images} subheading={"Check out some of our favorite ways to help out"}/>]}/>
           <AboutPageSection 
-            bgColor={"bg-indigo-600"} 
+            bgColor={"bg-cmu-maroon"} 
             heading={"FOCUS"} 
+            idRef={"aboutFOCUS"}
             sectionComponents={[
                 <AboutFOCUS subheading={aboutPageContents[0].focus_subheading} missionariesImg={aboutPageContents[0].our_missionaries_img} missionariesTxt={aboutPageContents[0].our_missionaries_text}/>, 
                 <AboutSEEK subheading={aboutPageContents[0].seek_subheading} signupLink={aboutPageContents[0].seek_signup_link} seekDesc={aboutPageContents[0].what_is_seek_text} seekImg={aboutPageContents[0].what_is_seek_img}/>, 
@@ -115,7 +98,8 @@ export default async function Events() {
             ]}
           />
           <AboutPageSection 
-            bgColor={"bg-indigo-500"} 
+           idRef={"aboutAlumni"}
+            bgColor={"bg-cmu-maroon"} 
             heading={"Alumni"} 
             sectionComponents={[<AboutAlumni subheading={aboutPageContents[0].alumni_subheading} vocations={alumniVocations[0].categories}/>]}/>
           <Footer/>

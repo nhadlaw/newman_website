@@ -46,15 +46,15 @@ const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
       >
         <div className="flex flex-col px-8">
           <p className="text-4xl font-bold mt-4 text-left text-white">
-            SEEK 2024 Highlights
+            {`SEEK ${(new Date()).getFullYear()} Highlights`}
           </p>
           <p className="text-lg mt-4 text-left text-white">
-            Take a look at some of the highlights from last year's SEEK!
+            Take a look at some of the highlights from this year's SEEK!
           </p>
           <div className='flex flex-col md:flex-row md:items-center'>
             <div className="flex flex-col h-[67vh] md:w-[50vw] relative mt-4">
                 {/* Slideshow Section */}
-                <div className="flex-1 relative overflow-hidden bg-indigo-400 shadow-lg rounded-sm">
+                <div className="flex-1 relative overflow-hidden bg-cmu-maroon-lighter shadow-lg rounded-sm">
                 {highlightImages.map((item, index) => (
                     <div className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
                         index === currentIndex ? 'opacity-100' : 'opacity-0'

@@ -21,7 +21,7 @@ const ServiceCard = ({ service }) => {
   }
 
   return (
-    <div className="max-w-96 mx-auto bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300">
+    <div className="max-w-96 mx-auto shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300">
         
         {/* Top Section */}
         <div className="relative h-80 shadow-md">
@@ -34,7 +34,7 @@ const ServiceCard = ({ service }) => {
         </div>
 
         {/* Bottom Section */}
-        <div className={`bg-indigo-700 flex flex-col items-center p-4 text-white ${isExpanded ? 'h-auto' : 'h-40'}`}>
+        <div className={`bg-cmu-maroon-darker flex flex-col items-center p-4 text-white ${isExpanded ? 'h-auto' : 'h-40'}`}>
           <h2 className="text-2xl font-bold">{service.title}</h2>
           <p className="text-sm mt-2">
             {isExpanded ? service.desc : serviceNonExpandedDesc}

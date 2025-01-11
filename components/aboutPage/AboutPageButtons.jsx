@@ -48,10 +48,10 @@ const ButtonRow = () => {
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-      <p className={`${headerStyling}`}>Learn About Us</p>
+      <p className={`${headerStyling} text-white`}>Learn About Us</p>
       <div className="flex flex-wrap justify-center items-center gap-8 mb-6 mt-16 w-[60vw]">
         {categories.map((category) => (
-          <a key={category.title} href={category.link}>
+          <a key={category.title} href={category.link} className='flex flex-col items-center'>
             <div
               className={`flex relative items-center justify-center w-[160] h-[160] border rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-white`}
             >
@@ -64,11 +64,9 @@ const ButtonRow = () => {
                 height={400}
                 className="z-0 opacity-80 object-cover hover:opacity-100"
                 />
-                <div className='flex flex-col absolute text-center'>
-                </div>
               </div>
             </div>
-            <p className='font-light mt-2 text-2xl'>{category.title}</p>
+            <p className='font-light mt-2 text-2xl text-white'>{category.title}</p>
           </a>
         ))}
       </div>

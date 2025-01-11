@@ -14,7 +14,7 @@ const SeekExtraInfoButton = ({buttonTitle, buttonDesc, buttonLink}) => {
                 rel="noopener noreferrer"
                 >
                 <div className='flex flex-col items-center border-white border-2 w-[90vw] md:w-[350px] transition-transform duration-300 hover:scale-105 hover:bg-white'>
-                    <div className='p-6 border-white border-2 flex flex-col items-center m-4 bg-indigo-800 w-[90%]'>
+                    <div className='p-6 border-white border-2 flex flex-col items-center m-4 bg-cmu-maroon-lighter w-[90%]'>
                         <p className="text-4xl font-bold mt-4 text-left text-white">
                         {buttonTitle}
                         </p>

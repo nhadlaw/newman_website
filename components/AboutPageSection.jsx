@@ -3,11 +3,11 @@ import {useIsVisible } from '../src/app/hooks/useIsVisible';
 import { aboutHeadingStyling } from '../constants/stylingConstants';
 
 
-const AboutPageSection = ({heading, sectionComponents, bgColor}) => {
+const AboutPageSection = ({idRef, heading, sectionComponents, bgColor}) => {
     return (
-        <div className={`${bgColor} py-32`}>
+        <div className={`${bgColor} py-32`} id={idRef}>
             <p className={`${aboutHeadingStyling}`}>{heading}</p>
-            <div className='flex flex-col gap-24 items-center'>
+            <div className='flex flex-col gap-32 items-center'>
                 {sectionComponents.map(function(item, index){
                     const { isVisible, elementRef } = useIsVisible({
                         root: null, // Use the viewport as the root

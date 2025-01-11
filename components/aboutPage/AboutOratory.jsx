@@ -18,9 +18,9 @@ const AboutOratory = ({oratoryTxt, oratoryImgs}) => {
   }, [oratoryImgs]);
 
   return (
-    <div id="aboutOratory" className="flex flex-col md:flex-row h-[120vh] lg:h-[80vh] mt-16 mx-16">
+    <div className="flex flex-col md:flex-row h-[120vh] lg:h-[80vh] mt-16 mx-4 md:mx-16">
       {/* Text Section */}
-      <div className="flex-1 bg-indigo-700 p-8 flex flex-col justify-center">
+      <div className="flex-1 bg-cmu-maroon-darker p-8 flex flex-col justify-center">
         <h1 className="text-4xl font-bold mb-4 text-white">{text.title}</h1>
         <p className="text-lg text-white">{text.description}</p>
       </div>

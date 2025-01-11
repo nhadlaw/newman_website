@@ -2,7 +2,7 @@
 "use client"
 import ServiceCard from './ServiceCard';
 import React, { useState, useEffect } from "react";
-import { eventsPageSubHeadingStyle, eventsPageSubHeadingTextStyle } from '../../constants/stylingConstants';
+import { aboutPageSubHeadingStyle, eventsPageSubHeadingTextStyle } from '../../constants/stylingConstants';
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 
 export default function AboutServiceOpportunities({serviceOpportunities, subheading}) {
@@ -43,7 +43,7 @@ export default function AboutServiceOpportunities({serviceOpportunities, subhead
 
   return (
     <div className="flex flex-col items-center" id="AboutServiceOpportunities">
-        <p className={eventsPageSubHeadingStyle}>Opportunities for Service</p>
+        <p className={aboutPageSubHeadingStyle}>Opportunities for Service</p>
         <h1 className={eventsPageSubHeadingTextStyle}>{subheading}</h1>
         <div className='flex flex-col items-center mt-8 mb-24'>
                     <div 
@@ -63,14 +63,14 @@ export default function AboutServiceOpportunities({serviceOpportunities, subhead
                       
                       {isMobile && 
                         <div className='flex flex-col items-center'>
-                          <p className="mt-4 text-xl">{currentIndex + 1} of {serviceOpportunities.length}</p>
+                          <p className="mt-4 text-xl text-white">{currentIndex + 1} of {serviceOpportunities.length}</p>
                           <div className="flex flex-row mt-4 gap-2">
                             <button
                                 className="text-white rounded disabled:opacity-50"
                                 onClick={handlePrev}
                                 disabled={currentIndex === 0}
                             >
-                                <HiChevronLeft className="text-white bg-gray-800 text-5xl rounded-3xl p-2" />
+                                <HiChevronLeft className="text-white bg-cmu-maroon-lighter text-5xl rounded-3xl p-2" />
 
                             </button>
                             <button
@@ -78,7 +78,7 @@ export default function AboutServiceOpportunities({serviceOpportunities, subhead
                                 onClick={handleNext}
                                 disabled={currentIndex + visibleCount >= serviceOpportunities.length}
                             >
-                            <HiChevronRight className="text-white bg-gray-800 text-5xl rounded-3xl p-2" />
+                            <HiChevronRight className="text-white bg-cmu-maroon-lighter text-5xl rounded-3xl p-2" />
                             </button>
                           </div>
                         </div>

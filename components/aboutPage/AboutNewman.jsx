@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { sectionTextStyle } from '../../constants/stylingConstants';
 const AboutNewman = ({newmanImg, newmanTxt}) => {
     return (
-        <div id="aboutNewman">
+        <div>
             <div className="flex flex-col items-center">
                 <div className="items-center"  style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
                     <Image

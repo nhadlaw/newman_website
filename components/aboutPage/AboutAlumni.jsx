@@ -8,14 +8,14 @@ import AlumniVocations from "./AlumniVocations"
 const AboutAlumni = ({subheading, vocations}) => {
 
   return (
-    <div id="aboutAlumni">
+    <div>
       <p className={aboutSubheadingStyling}>
         {subheading}
       </p>
       <div className="flex flex-col items-center">
         <h1 className={`${eventsPageSubHeadingStyle} mt-16`}>{"Vocations"}</h1>
         <p className={aboutSubheadingStyling}>
-        Take a look at our alumni vocations.
+        Take a look at our alumni vocations
         </p>
         <AlumniVocations alumniVocations={vocations}/>
       </div>

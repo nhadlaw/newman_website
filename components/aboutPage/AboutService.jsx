@@ -6,7 +6,7 @@ import ServiceContactLinks from './ServiceContactLinks';
 
 const AboutService = ({subheading, discordLink, emailLink}) => {
     return (
-        <div id="aboutService">
+        <div>
             <div className="flex flex-col items-center">
                 <div className="items-center"  style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
                     <div className={sectionTextStyle}>

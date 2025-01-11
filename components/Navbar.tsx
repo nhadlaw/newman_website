@@ -25,9 +25,6 @@ const Navbar = () => {
                 </Link>
                 <div style={{fontWeight: "200"}} className="hidden sm:flex">
                     <ul className="hidden sm:flex">
-                        <Link href="/">
-                            <li className="ml-10 hover:border-b text-xl text-white">Home</li>
-                        </Link>
                         <Link href="/about">
                             <li className="ml-10 hover:border-b text-xl text-white">About</li>
                         </Link>
@@ -62,12 +59,12 @@ const Navbar = () => {
             </div>
             <div className="flex-col py-4">
                     <ul>
-                        <Link href="/">
+                        <Link href="/about">
                             <li 
                                 onClick={() => setMenuOpen(false)}
                                 className="py-4 cursor-pointer text-white ml-10 hover:border-b text-xl"
                             >
-                                Home
+                                About
                             </li>
                         </Link>
                         <Link href="/lit_and_prayer">

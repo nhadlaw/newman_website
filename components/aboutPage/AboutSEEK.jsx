@@ -2,20 +2,20 @@
 
 import Image from 'next/image';
 import React from "react";
-import { eventsPageSubHeadingStyle, eventsPageSubHeadingTextStyle } from '../../constants/stylingConstants';
+import { aboutPageSubHeadingStyle, eventsPageSubHeadingTextStyle } from '../../constants/stylingConstants';
 
 const AboutSEEK = ({subheading, signupLink, seekDesc, seekImg}) => {
     return (
         <div className='w-full'>
             <div className='flex flex-col items-center'>
-                <h1 className={eventsPageSubHeadingStyle}>{"SEEK Conference"}</h1>
+                <h1 className={aboutPageSubHeadingStyle}>{"SEEK Conference"}</h1>
                 <p className={eventsPageSubHeadingTextStyle}>{subheading}</p>
                 <a
                     href={signupLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ width: "300px" }}
-                    className="text-center mt-4 text-white border-2 border-white px-8 py-4 text-xl font-medium rounded shadow-md hover:bg-white hover:text-indigo-700 hover:shadow-lg transition-all duration-300"
+                    className="text-center mt-4 text-white border-2 border-white px-8 py-4 text-xl font-medium rounded shadow-md hover:bg-white hover:text-cmu-maroon hover:shadow-lg transition-all duration-300"
                 >
                     {`Sign Up for SEEK ${(new Date()).getFullYear() + 1}!`}
                 </a>

@@ -4,6 +4,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./components/aboutPage/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./constants/**/*.{js,ts,jsx,tsx}"
   ],
@@ -25,6 +26,8 @@ module.exports = {
       },
       colors: {
         'cmu-maroon': '#721C40',
+        'cmu-maroon-darker': 'rgb(91, 22, 51)',
+        'cmu-maroon-lighter': 'rgb(140, 55, 89)',
         'oratory-blue': '#00008B',
         'oratory-yellow': '#FFD700',
         'oratory-red': '#8B0000',
