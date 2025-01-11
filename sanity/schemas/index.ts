@@ -11,8 +11,11 @@ import staffDescriptions from "./staff-descriptions-schema";
 import chitChatsDisplay from "./chit-chats-schema";
 import bibleStudySchema from "./bible-study-schema";
 import allHeadersAndDescriptionsSchema from "./all-headers-subheaders-desc-schema";
+import aboutPageContents from "./about-page-schema";
+import alumniVocations from "./alumni-vocations-schema";
 
 const schemas = [homepageSlideshow, testimonies, upcomingEventsSchema, churchLituragyOptions, 
     officersAndMinisters, weeklyEvents, eventHighlightsSchema, semesterlyRetreatsSchema, 
-    previousRetreatsSchema, staffDescriptions, chitChatsDisplay, bibleStudySchema, allHeadersAndDescriptionsSchema];
+    previousRetreatsSchema, staffDescriptions, chitChatsDisplay, bibleStudySchema, 
+    aboutPageContents, alumniVocations, allHeadersAndDescriptionsSchema];
 export default schemas;

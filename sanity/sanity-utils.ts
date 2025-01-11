@@ -405,5 +405,81 @@ export async function getAllHeadersAndSubHeaders() {
 
 
 
+export async function getAboutPageContents() {
+    const client = createClient({
+        projectId: "ds40fytf",  // Replace with your projectId
+        dataset: "production",  // Replace with your dataset name
+        apiVersion: "2024-12-18",  // Use the current API version
+    });
+
+    const aboutPageContentsQuery = groq`*[_type == "aboutPageContents"]{
+        _id,
+        _createdAt,
+        "what_is_newman_img": what_is_newman_img.asset->url,
+        what_is_newman_text,
+        oratory_text,
+        oratory_images[]{
+            "oratory_image": oratory_image.asset->url,
+            title,
+            desc
+        },
+        our_community_subheading,
+        support_link,
+        support_link_name,
+        "support_link_img": support_link_img.asset->url,
+        "events_link_img": events_link_img.asset->url,
+        "alumni_link_img": alumni_link_img.asset->url,
+        service_subheading,
+        service_discord_link,
+        service_email_link,
+        service_opportunity_images[]{
+            "service_image": service_image.asset->url,
+            title,
+            desc
+        },
+        focus_subheading,
+        "our_missionaries_img": our_missionaries_img.asset->url,
+        our_missionaries_text,
+        seek_subheading,
+        seek_signup_link,
+        what_is_seek_text,
+        "what_is_seek_img": what_is_seek_img.asset->url,
+        seek_recaplink,
+        seek_see_more_link,
+        seek_highlights[]{
+            "highlight_image": highlight_image.asset->url,
+            title,
+            desc
+        },
+        alumni_subheading
+    }`;
+
+    return client.fetch(aboutPageContentsQuery);
+}
 
 
+
+
+export async function getAlumniVocations() {
+    const client = createClient({
+        projectId: "ds40fytf",  // Replace with your projectId
+        dataset: "production",  // Replace with your dataset name
+        apiVersion: "2024-12-18",  // Use the current API version
+    });
+
+    const alumniVocationsQuery = groq`
+        *[_type == "alumniVocations"]{
+            categories[]{
+            categoryName,
+            individuals[]{
+                "imageUrl": image.asset->url,
+                name,
+                gradStatus,
+                vocation
+            }
+            }
+        }      
+    `
+
+    return client.fetch(alumniVocationsQuery);
+}

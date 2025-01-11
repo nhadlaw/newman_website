@@ -9,7 +9,7 @@ const text = {
   description: "test desc",
 };
 
-const AboutSEEKHighlights = ({ highlightImages }) => {
+const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Automatically change slides every 3 seconds
@@ -55,13 +55,13 @@ const AboutSEEKHighlights = ({ highlightImages }) => {
             <div className="flex flex-col h-[67vh] md:w-[50vw] relative mt-4">
                 {/* Slideshow Section */}
                 <div className="flex-1 relative overflow-hidden bg-indigo-400 shadow-lg rounded-sm">
-                {highlightImages.map((image, index) => (
+                {highlightImages.map((item, index) => (
                     <div className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
                         index === currentIndex ? 'opacity-100' : 'opacity-0'
                     }`}>
                         <img
                         key={index}
-                        src={image}
+                        src={item.highlight_image}
                         alt={`Slide ${index}`}
                         className={`w-full h-full object-cover`}
                         
@@ -88,8 +88,8 @@ const AboutSEEKHighlights = ({ highlightImages }) => {
                 </div>
             </div>
                 <div className='flex-col gap-8 mt-16 md:mt-0'>
-                    <SeekExtraInfoButton buttonTitle={"SEEK Replay"} buttonDesc={"Check out live talks from SEEK 2025 here"} buttonLink={""}/>
-                    <SeekExtraInfoButton buttonTitle={"See More"} buttonDesc={"Find out more about SEEK here"} buttonLink={""}/>
+                    <SeekExtraInfoButton buttonTitle={"SEEK Replay"} buttonDesc={`Check out live talks from SEEK ${(new Date()).getFullYear()} here`} buttonLink={recapLink}/>
+                    <SeekExtraInfoButton buttonTitle={"Learn More"} buttonDesc={"Find out more about SEEK"} buttonLink={seeMoreLink}/>
 
                 </div>
           </div>

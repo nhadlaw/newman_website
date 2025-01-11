@@ -1,18 +1,17 @@
 
 "use client"
-import {headerStyling, sectionMargin, aboutSubheadingStyling} from '../../constants/stylingConstants';
+import {aboutSubheadingStyling} from '../../constants/stylingConstants';
 import {useIsVisible } from '../../src/app/hooks/useIsVisible';
 
-const OurCommunityOptions = ({ items }) => {
+const OurCommunityOptions = ({ subheading, items }) => {
     const { isVisible, elementRef } = useIsVisible({
         root: null, // Use the viewport as the root
         rootMargin: '0px',
       });
     return (
-        <div id="bibleStudySignUp" className={`transition-opacity ease-in duration-[700ms] ${
+        <div id="aboutOurCommunity" className={`transition-opacity ease-in duration-[700ms] ${
             isVisible ? 'opacity-100' : 'opacity-0'}`} ref={elementRef}>
-            <p className={aboutSubheadingStyling}>
-            We offer Bible study groups for undergrad and grad women, as well as student-athletes at Carnegie Mellon. All are welcome—no religious background or skill level required! Contact anyone listed below or email us at newman@gmail.com to get connected.</p>
+            <p className={aboutSubheadingStyling}>{subheading}</p>
             {/* INFO COMPONENTS */}
             <div className="container mx-auto py-8 px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -31,7 +30,7 @@ const OurCommunityOptions = ({ items }) => {
                                     {item.description}
                                 </p>
                                 <a
-                                    href={""}
+                                    href={item.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{width: '60%'}}
@@ -39,7 +38,7 @@ const OurCommunityOptions = ({ items }) => {
                                     >
                                     <div>
                                     <p>
-                                        {`Contact blank`}
+                                        {item.link_name}
                                     </p>
                                     </div>
                                 </a>

@@ -11,12 +11,12 @@ const ServiceCard = ({ service }) => {
   // isLonger is used to keep track of if we need a see more option
   let isLonger = false;
 
-  if (service.description) {
-    if (service.description.length <= 150) {
-      serviceNonExpandedDesc = service.description
+  if (service.desc) {
+    if (service.desc.length <= 250) {
+      serviceNonExpandedDesc = service.desc
     } else {
       isLonger = true;
-      serviceNonExpandedDesc = `${service.description.slice(0, 100)}...`
+      serviceNonExpandedDesc = `${service.desc.slice(0, 100)}...`
     }
   }
 
@@ -27,7 +27,7 @@ const ServiceCard = ({ service }) => {
         <div className="relative h-80 shadow-md">
           {/* Image */}
           <img
-            src={service.image}
+            src={service.service_image}
             alt={service.title}
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -37,7 +37,7 @@ const ServiceCard = ({ service }) => {
         <div className={`bg-indigo-700 flex flex-col items-center p-4 text-white ${isExpanded ? 'h-auto' : 'h-40'}`}>
           <h2 className="text-2xl font-bold">{service.title}</h2>
           <p className="text-sm mt-2">
-            {isExpanded ? service.description : serviceNonExpandedDesc}
+            {isExpanded ? service.desc : serviceNonExpandedDesc}
           </p>
         { isLonger &&   
         <button
