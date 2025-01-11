@@ -38,7 +38,8 @@ export async function getTestimonies() {
         student,
         "image":image.asset->url,
         testimony,
-        background_color
+        grad_year,
+        major
     }`
 
     //ignore the reg squiggly line for testimonyQuery that is just a typescript issue
@@ -84,6 +85,7 @@ export async function getChurchLituraryOptionsSchema() {
         _id,
         _createAt,
         churchName,
+        priority,
         location,
         location_google_maps,
         massTimes {
@@ -276,6 +278,7 @@ export async function getPreviousRetreats() {
         retreat_desc,
         retreat_talks[],
         "image":image.asset->url,
+        "svg_image": svg_image.asset->url
     }`
 
     //ignore the reg squiggly line for previousRetreatsInfoQuery that is just a typescript issue
@@ -298,7 +301,11 @@ export async function getStaffDescriptions() {
         _createAt,
         oratory_staff_desc,
         focus_staff_desc,
-        exec_staff_desc
+        exec_staff_desc,
+        focus_link,
+        focus_link_name,
+        oratory_link,
+        oratory_link_name
     }`
 
     //ignore the reg squiggly line for staffDescriptionsQuery that is just a typescript issue
@@ -353,6 +360,49 @@ export async function getBibleStudies() {
     return client.fetch(bibleStudiesQuery)
 
 }
+
+
+export async function getAllHeadersAndSubHeaders() {
+    const client = createClient({
+        projectId: "ds40fytf",
+        dataset: "production",
+        apiVersion: "2024-12-18",
+    });
+
+    // Define the GROQ query to fetch all fields from the schema
+    const headersAndSubHeadersQuery = groq`*[_type == "allHeadersAndDescriptions"]{
+        _id,
+        _createdAt,
+        welcome_subheading,
+        "litAndPray_heading_img": litAndPray_heading_img.asset->url,
+        "litAndPray_heading_img_alt": litAndPray_heading_img.alt,
+        "events_heading_img": events_heading_img.asset->url,
+        "events_heading_img_alt": events_heading_img.alt,
+        "retreats_heading_img": retreats_heading_img.asset->url,
+        "retreats_heading_img_alt": retreats_heading_img.alt,
+        "staff_heading_img": staff_heading_img.asset->url,
+        "staff_heading_img_alt": staff_heading_img.alt,
+        litAndPray_subheading,
+        sacraments_subheading,
+        events_subheading,
+        events_explore_subheading,
+        events_weekly_subheading,
+        events_upcoming_subheading,
+        events_calendar_subheading,
+        events_highlights_subheading,
+        events_chitchats_subheading,
+        retreats_subheading,
+        retreats_previous_subheading,
+        staff_subheading,
+        staff_seePeople_subheading,
+        "image": image.asset->url,
+        "image_alt": image.alt
+    }`
+
+    // Fetch and return the data
+    return client.fetch(headersAndSubHeadersQuery);
+}
+
 
 
 

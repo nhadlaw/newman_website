@@ -19,6 +19,26 @@ const staffDescriptions = {
             title: 'Exec Board Desc',
             type: 'string',
         },
+        {
+            name: 'focus_link',
+            title: 'FOCUS Staff Learn More Link',
+            type: 'string',
+        },
+        {
+            name: 'focus_link_name',
+            title: 'FOCUS Staff Learn More Link Name',
+            type: 'string',
+        },
+        {
+            name: 'oratory_link',
+            title: 'Oratory Staff Learn More Link',
+            type: 'string',
+        },
+        {
+            name: 'oratory_link_name',
+            title: 'Oratory Staff Learn More Link Name',
+            type: 'string',
+        },
     ]
 }
 

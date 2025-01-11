@@ -36,7 +36,7 @@ const ChitChatsCard = ({ chitChat }) => {
         {/* Bottom Section */}
         <div className={`p-4 ${isExpanded ? 'h-auto' : 'h-40'}`}>
           <h2 className="text-xl font-bold text-gray-800">{chitChat.topic}</h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 text-sm mt-2">
             {isExpanded ? chitChat.description : chitChatNonExpandedDesc}
           </p>
         { isLonger &&   

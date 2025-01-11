@@ -1,8 +1,15 @@
 "use client"
 import Link from "next/link";
+import {headerStyling, sectionMargin} from '../constants/stylingConstants';
+import {useIsVisible } from '../src/app/hooks/useIsVisible';
+
 
 const WeeklyEventsGrid = () => {
 
+  const { isVisible, elementRef } = useIsVisible({
+    root: null, // Use the viewport as the root
+    rootMargin: '0px',
+  });
   const gridItems = [
         { 
             title: "Mass", 
@@ -35,9 +42,10 @@ const WeeklyEventsGrid = () => {
         },
     ]
 return (
-  <>
-   <div>
-    </div>
+   <div className={`${sectionMargin} transition-opacity ease-in duration-[700ms] ${
+    isVisible ? 'opacity-100' : 'opacity-0'}`} ref={elementRef}>
+      <p className={headerStyling}>Weekly Events
+        </p>
         <div className="container mx-auto py-8 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {gridItems.map(function (item, index) {
@@ -68,7 +76,8 @@ return (
             )}
           </div>
         </div>
-        </>
+      </div>
+
       );
 };
 

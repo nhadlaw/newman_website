@@ -2,32 +2,32 @@ import PageBanner from "../../../components/PageBanner";
 import CampusMinistryDisplay from "../../../components/CampusMinistryDisplay";
 import { getOfficersAndMinisters } from "../../../sanity/sanity-utils";
 import colors from '../../../constants/colors';
-import { getStaffDescriptions } from "../../../sanity/sanity-utils";
+import { getStaffDescriptions, getAllHeadersAndSubHeaders } from "../../../sanity/sanity-utils";
+import Footer from "../../../components/Footer";
+import StaffPageButtons from "../../../components/StaffPageButtons";
+import BackToTop from "../../../components/BackToTop";
+import grabText from '../../../constants/helpers';
+
+
 const {oratoryStaffColors, focusStaffColors, execBoardColors} = colors;
 
-const staffQuote = "We are very blessed to have the Oratorian Fathers, FOCUS missionaries, and our fellow classmates on the Exec board that support our club and help build a wonderful community."
-
-//TODO move these constants to a separate file  
 
 export default async function OfficersAndMinistersPage() {
   const officersAndMinisters = await getOfficersAndMinisters();
   const staffDesc = await getStaffDescriptions();
-  console.log('officers and ministers: ', officersAndMinisters)
+  const allHeaders = await getAllHeadersAndSubHeaders();
 
   return (
       <div style={{overflowX: "hidden"}}>
-          <PageBanner pageName={"Officers & Ministers"} pageDesc={staffQuote} pageImg={'/OfficersAndMinistersPage.png'}/>
-          <div className="bg-white pb-28">                
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-black pt-28 text-center font-bold text-black text-7xl">Pittsburgh Oratory Assoc.</p>
-            <p className="mt-4 font-light pr-16 pl-16 text-xl text-black z-10 relative text-center">{staffDesc[0].oratory_staff_desc}</p>
-            <CampusMinistryDisplay people={officersAndMinisters[0].oratoryStaff.information} bgColors={oratoryStaffColors}/>
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-black text-center font-bold text-black text-7xl">FOCUS Missionaries</p>
-            <p className="mt-4 font-light pr-16 pl-16 text-xl text-black z-10 relative text-center">{staffDesc[0].focus_staff_desc}</p>
-            <CampusMinistryDisplay people={officersAndMinisters[0].focusStaff.information} bgColors={focusStaffColors}/>
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-black text-center font-bold text-black text-7xl">Executive Board</p>
-            <p className="mt-4 font-light pr-16 pl-16 text-xl text-black z-10 relative text-center">{staffDesc[0].exec_staff_desc}</p>
-            <CampusMinistryDisplay people={officersAndMinisters[0].execBoard.information} bgColors={execBoardColors}/>
+          <PageBanner pageName={"Officers & Ministers"} pageDesc={grabText('staff_subheading', allHeaders)} pageImg={allHeaders[0].staff_heading_img}/>
+          <BackToTop/>
+          <StaffPageButtons subheading={grabText('staff_seePeople_subheading', allHeaders)}/>
+          <div className="bg-white my-48 flex flex-col gap-24">                
+            <CampusMinistryDisplay refId={"oratoryStaff"} link={staffDesc[0].oratory_link} linkName={staffDesc[0].oratory_link_name} heading={"Pittsburgh Oratory Assoc."} staffDesc={staffDesc[0].oratory_staff_desc} people={officersAndMinisters[0].oratoryStaff.information} bgColors={oratoryStaffColors}/>
+            <CampusMinistryDisplay refId={"focusStaff"} link={staffDesc[0].focus_link} linkName={staffDesc[0].focus_link_name} heading={"FOCUS Missionaries"} staffDesc={staffDesc[0].focus_staff_desc} people={officersAndMinisters[0].focusStaff.information} bgColors={focusStaffColors}/>
+            <CampusMinistryDisplay refId={"execStaff"} link={null} linkName={null} heading={"Exec Board"} staffDesc={staffDesc[0].exec_staff_desc} people={officersAndMinisters[0].execBoard.information} bgColors={execBoardColors}/>
           </div>
+          <Footer/>
       </div>
   );
 }

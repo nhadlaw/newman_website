@@ -1,3 +1,5 @@
+"use client"
+import {useIsVisible } from '../src/app/hooks/useIsVisible';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -5,15 +7,37 @@ const churchImages = {
     'Holy Spirit Byzantine': '/ByzantineOutline.svg',
     'The Pittsburgh Oratory': '/OratoryOutline.svg',
     'St. Paul Cathedral': '/StPaulOutline.svg',
-    'CMU Wright Rogal': '/HamerschlagOutline.svg'
+    'CMU Wright Rogal': '/HamerschlagOutline.svg',
+    'Heinz Chapel': 'HeinzChapel.svg'
+}
+function sortByPriority(array) {
+    if (!Array.isArray(array)) {
+       return array
+    }
+    
+    return array.sort((a, b) => {
+        if (a.priority === undefined || b.priority === undefined) {
+            return 0
+        }
+        return a.priority - b.priority;
+    });
 }
 
 const litAndPrayerOptions = ({items, bgColor, heading, description, informationToGrab}) => {
+    const { isVisible, elementRef } = useIsVisible({
+        root: null, // Use the viewport as the root
+        rootMargin: '0px',
+    });
   return (
-      <div>
+        <div
+        ref={elementRef}
+        className={`transition-opacity ease-in duration-[700ms] ${
+            isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+        >
         <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold text-black text-7xl">{heading}</p>
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 py-6 px-6">
-            {items.map((item, index) => (
+            {(sortByPriority(items)).map((item, index) => (
                 item[informationToGrab] && 
                 <div
                 key={index}

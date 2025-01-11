@@ -28,6 +28,9 @@ const Navbar = () => {
                         <Link href="/">
                             <li className="ml-10 hover:border-b text-xl text-white">Home</li>
                         </Link>
+                        <Link href="/about">
+                            <li className="ml-10 hover:border-b text-xl text-white">About</li>
+                        </Link>
                         <Link href="/lit_and_prayer">
                             <li className="ml-10 hover:border-b text-xl text-white">Liturgy and Prayer</li>
                         </Link>

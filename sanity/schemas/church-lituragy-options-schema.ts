@@ -9,6 +9,11 @@ const churchLituragyOptions = {
             type: 'string'
         },
         {
+            name: 'priority',
+            title: 'Priority In Display Order',
+            type: 'number'
+        },
+        {
             name: 'location',
             title: 'Church Location',
             type: 'string',

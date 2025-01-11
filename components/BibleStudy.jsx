@@ -1,14 +1,22 @@
 
+"use client"
+import {headerStyling, sectionMargin, subheadingStyling} from '../constants/stylingConstants';
+import {useIsVisible } from '../src/app/hooks/useIsVisible';
+
 const BibleStudyDisplay = ({ items }) => {
+    const { isVisible, elementRef } = useIsVisible({
+        root: null, // Use the viewport as the root
+        rootMargin: '0px',
+      });
     return (
-        <div id="bibleStudySignUp">
+        <div id="bibleStudySignUp" className={`${sectionMargin} transition-opacity ease-in duration-[700ms] ${
+            isVisible ? 'opacity-100' : 'opacity-0'}`} ref={elementRef}>
             <p 
-                className={`pt-40 text-center font-bold text-black text-5xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl`}
-                style={{ paddingRight: "20px", paddingLeft: "20px" }}
+                className={headerStyling}
             >
                 Join a Bible Study
             </p>
-            <p className="text-center text-2xl pr-24 pl-24 font-light mt-4">
+            <p className={subheadingStyling}>
             We offer Bible study groups for undergrad and grad women, as well as student-athletes at Carnegie Mellon. All are welcome—no religious background or skill level required! Contact anyone listed below or email us at newman@gmail.com to get connected.            </p>
             {/* INFO COMPONENTS */}
             <div className="container mx-auto py-8 px-8">

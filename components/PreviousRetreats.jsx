@@ -1,10 +1,17 @@
 "use client";
 import { useState } from 'react';
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { useIsVisible } from '../src/app/hooks/useIsVisible';
+import { headerStyling, subheadingStyling } from "../constants/stylingConstants";
 
-export default function Slideshow({items}) {
+const previousRetreatsInfo = "Check out some of our previous Retreat themes!";
+
+export default function Slideshow({ items }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const { isVisible, elementRef } = useIsVisible({
+    root: null, // Use the viewport as the root
+    rootMargin: '0px',
+  });
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % items.length);
   };
@@ -14,54 +21,83 @@ export default function Slideshow({items}) {
   };
 
   return (
-    <div className="relative w-screen h-screen">
-      <div className="flex flex-col md:flex-row w-full h-full">
-        {/* Left side (Image) */}
-        <div className="flex-1">
-          <img
-            src={items[currentSlide].image}
-            alt={items[currentSlide].retreat_theme}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Right side (Title and Description) */}
-        <div className={`flex-1 p-8 ${items[currentSlide].bg_color} text-white flex flex-col justify-center`}>
-          <h2 className="text-4xl font-bold">{items[currentSlide].retreat_theme}</h2>
-          <p className="text-lg font-light mb-4">{items[currentSlide].retreat_semester}</p>
-          <p className="text-lg">{items[currentSlide].retreat_desc}</p>
-          <div>
-            <h2 className="text-2xl font-bold mt-4">{"Talks"}</h2>
-            {(items[currentSlide].retreat_talks).map((talk_name, index) => (
-              <div key={index}>
-                <p className='text-lg'>{talk_name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div
+      ref={elementRef}
+      className={`transition-opacity ease-in duration-[700ms] ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div className="text-center">
+        <p className={headerStyling}>Previous Retreats</p>
+        <p className={subheadingStyling}>{previousRetreatsInfo}</p>
       </div>
+      <div className='mt-12 relative'>
+        <div className="flex flex-col md:flex-row">
+          {/* Left side (Image) */}
+          <div>
+            <img
+              src={items[currentSlide].image}
+              alt={items[currentSlide].retreat_theme}
+              className="w-full h-full object-cover"
+            />
+            <BsArrowLeftCircleFill
+              style={{
+                position: 'absolute',
+                filter: 'drop-shadow(0px 0px 3px #555)',
+                width: '3rem',
+                height: '3rem',
+                color: 'white',
+              }}
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 cursor-pointer opacity-60 hover:opacity-100"
+            />
+            
+          </div>
 
-      {/* Arrow Controls */}
-      <BsArrowLeftCircleFill
-        style={{ position: 'absolute', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'white'}}
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer opacity-60 hover:opacity-100"
-      />
-      <BsArrowRightCircleFill
-        style={{ position: 'absolute', filter: 'drop-shadow(0px 0px 3px #555)', width: '3rem', height: '3rem', color: 'white'}}
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer opacity-60 hover:opacity-100"
-      />
+          {/* Right side (Title and Description) */}
+          <div className={`${items[currentSlide].bg_color} text-white flex flex-col justify-center md:h-[85vh] md:pt-16`}>
+            <div className='p-16'>
+              <h2 className="text-4xl font-bold">{items[currentSlide].retreat_theme}</h2>
+              <p className="text-lg font-light mb-4">{items[currentSlide].retreat_semester}</p>
+              <p className="text-lg">{items[currentSlide].retreat_desc}</p>
+              {items[currentSlide].svg_image && <img
+                src={items[currentSlide].svg_image}
+                alt={items[currentSlide].retreat_theme}
+                className="mt-6 object-cover overflow-hidden object-cover relative bottom-0" 
+                style={{ clipPath: "inset(auto auto 0 auto)" }}
 
-      {/* Slide Indicators */}
-      <div className="opacity-0 md:opacity-100 absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {items.map((_, index) => (
-          <div
-            key={index}
-            className={`h-2 w-2 ${index === currentSlide ? "bg-white" : "bg-gray-300"} rounded transition-all duration-500`}
-          ></div>
-        ))}
+              />}
+            </div>
+            <BsArrowRightCircleFill
+              style={{
+                position: 'absolute',
+                filter: 'drop-shadow(0px 0px 3px #555)',
+                width: '3rem',
+                height: '3rem',
+                color: 'white',
+              }}
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer opacity-60 hover:opacity-100"
+            />
+          </div>
+          <div className="opacity-0 md:opacity-100 absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {items.map((_, index) => (
+            <div
+              key={index}
+              className={`h-2 w-2 ${
+                index === currentSlide ? 'bg-white' : 'bg-gray-300'
+              } rounded transition-all duration-500`}
+            ></div>
+          ))}
+        </div>
+          </div>
+
+        {/* Arrow Controls */}
+
       </div>
     </div>
   );
 }
+
+
+

@@ -29,10 +29,15 @@ const testimonies = {
             type: 'string'
         },
         {
-            name: 'background_color',
-            title: 'Background Color',
+            name: 'major',
+            title: 'Major',
             type: 'string'
-        }
+        },
+        {
+            name: 'grad_year',
+            title: 'Graduation Year',
+            type: 'string'
+        },
     ]
 }
 

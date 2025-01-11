@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/LitAndPrayerOptions.jsx", "components/CampusMinistryDisplay.jsx", "components/ExpandableTestimony.jsx", "components/UpcomingEvents.jsx", "components/ChurchInfo.jsx", "components/ContactCard.jsx", "components/EventsPageWeeklyGrid.jsx", "components/HomepageSlideshow.jsx", "components/PageBanner.jsx", "components/Testimonies.jsx", "components/Saint2.jsx", "components/Saint1.jsx", "components/EventsPageUpcomingGrid.jsx", "components/PreviousRetreats.jsx", "components/RetreatInfo.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/LitAndPrayerOptions.jsx", "components/CampusMinistryDisplay.jsx", "components/ExpandableTestimony.jsx", "components/UpcomingEvents.jsx", "components/ChurchInfo.jsx", "components/ContactCard.jsx", "components/EventsPageWeeklyGrid.jsx", "components/HomepageSlideshow.jsx", "components/PageBanner.jsx", "components/Testimonies.jsx", "components/Saint2.jsx", "components/Saint1.jsx", "components/EventsPageUpcomingGrid.jsx", "components/PreviousRetreats.jsx", "components/RetreatInfo.jsx", "components/StaffPageButtons.jsx", "components/EventsPageButtons.jsx", "components/Welcome.jsx"],
   "exclude": ["node_modules"]
 }

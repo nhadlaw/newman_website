@@ -4,7 +4,7 @@ const ContactCard = ({ person, bgColor}) => {
   return (
     <div className="w-56 bg-white shadow-lg shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
       {/* Top Section */}
-      <div className="relative h-80 shadow-md">
+      <div className="relative h-72 shadow-md">
         {/* Background */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="w-full h-[25%] bg-white"></div>
