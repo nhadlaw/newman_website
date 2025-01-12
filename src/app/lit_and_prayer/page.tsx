@@ -1,6 +1,5 @@
 import PageBanner from "../../../components/PageBanner";
 import SacramentOptions from "../../../components/SacramentOptions"
-import ChurchInfo from "../../../components/ChurchInfo";
 import LitAndPrayerOptions from "../../../components/LitAndPrayerOptions";
 import { getChurchLituraryOptionsSchema, getAllHeadersAndSubHeaders } from "../../../sanity/sanity-utils";
 import BackToTop from "../../../components/BackToTop";
@@ -30,11 +29,6 @@ export default async function LitAndPray() {
           <div className="bg-[rgba(0,168,107,0.8)] pb-28" id="divineOfficeAndDevotions">
             <LitAndPrayerOptions items={churchAndLituragyOptions} bgColor={"bg-[rgba(0,168,107,0.8)]"} heading={"Divine Office & Devotions"} description={description} informationToGrab={"divineOfficeAndDevotions"}/>
           </div>
-           {/* <div className="bg-black" id="churchInfo">
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '4rem'}} className="text-white pt-28 text-center font-bold text-white text-7xl">Churches in Pittsburgh</p>
-            <p style={{paddingRight: "20px", paddingLeft: "20px", fontSize: '1rem'}} className="text-white pt-2 mb-8 text-center font-light text-white ">So many options for so many churches that are all a walking distance away from campus!</p>
-            <ChurchInfo slides={churchAndLituragyOptions}/>
-          </div> */}
           <Footer/>
       </div>
   );

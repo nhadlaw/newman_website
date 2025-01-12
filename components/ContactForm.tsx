@@ -1,6 +1,5 @@
 "use client"
 import { useIsVisible } from '../src/app/hooks/useIsVisible';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export type FormData = {

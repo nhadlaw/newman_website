@@ -1,10 +1,6 @@
-import PageBanner from "../../../components/PageBanner";
-import EventsPageButtons from "../../../components/EventsPageButtons";
 import BackToTop from "../../../components/BackToTop";
 import Footer from "../../../components/Footer";
-import { getAllHeadersAndSubHeaders, getWeeklyEvents, 
-    getUpcomingEvents, getEventHighlights, getChitChatsDisplay, getAboutPageContents, getAlumniVocations } from "../../../sanity/sanity-utils";
-import grabText from '../../../constants/helpers';
+import { getAboutPageContents, getAlumniVocations } from "../../../sanity/sanity-utils";
 import AboutPageSection from "../../../components/AboutPageSection";
 import AboutNewman from "../../../components/aboutPage/AboutNewman";
 import AboutOratory from "../../../components/aboutPage/AboutOratory";
@@ -62,35 +58,36 @@ export default async function Events() {
             bgColor={"bg-cmu-maroon"} 
             heading={"What is Newman?"} 
             idRef={"aboutNewman"}
-            sectionComponents={[<AboutNewman newmanImg={aboutPageContents[0].what_is_newman_img} newmanTxt={aboutPageContents[0].what_is_newman_text}/>]}
+            sectionComponents={[<AboutNewman key="about-newman" newmanImg={aboutPageContents[0].what_is_newman_img} newmanTxt={aboutPageContents[0].what_is_newman_text}/>]}
           />
           <AboutPageSection 
             bgColor={"bg-cmu-maroon"} 
             heading={"Our Community"} 
             idRef={"aboutOurCommunity"}
-            sectionComponents={[<OurCommunityOptions subheading={aboutPageContents[0].our_community_subheading} items={communityItems}/>]
+            sectionComponents={[<OurCommunityOptions key="out-community" subheading={aboutPageContents[0].our_community_subheading} items={communityItems}/>]
         }/>
         <AboutPageSection 
           bgColor={"bg-cmu-maroon"} 
           heading={"The Oratory"} 
           idRef={"aboutOratory"}
-          sectionComponents={[<AboutOratory oratoryTxt={aboutPageContents[0].oratory_text} oratoryImgs={aboutPageContents[0].oratory_images}/>]}
+          sectionComponents={[<AboutOratory key="about-oratory" oratoryTxt={aboutPageContents[0].oratory_text} oratoryImgs={aboutPageContents[0].oratory_images}/>]}
         />
           <AboutPageSection 
             bgColor={"bg-cmu-maroon"} 
             heading={"Service"} 
             idRef={"aboutService"}
             sectionComponents={
-                [<AboutService subheading={aboutPageContents[0].service_subheading} discordLink={aboutPageContents[0].service_discord_link} seeMoreLink={aboutPageContents[0].service_see_more_link} />, 
-                <AboutServiceOpportunities serviceOpportunities={aboutPageContents[0].service_opportunity_images} subheading={"Check out some of our favorite ways to help out"}/>]}/>
+                [<AboutService key="about-service" subheading={aboutPageContents[0].service_subheading} discordLink={aboutPageContents[0].service_discord_link} seeMoreLink={aboutPageContents[0].service_see_more_link} />, 
+                <AboutServiceOpportunities key="about-service-opportunities" serviceOpportunities={aboutPageContents[0].service_opportunity_images} subheading={"Check out some of our favorite ways to help out"}/>]}/>
           <AboutPageSection 
             bgColor={"bg-cmu-maroon"} 
             heading={"FOCUS"} 
             idRef={"aboutFOCUS"}
             sectionComponents={[
-                <AboutFOCUS subheading={aboutPageContents[0].focus_subheading} missionariesImg={aboutPageContents[0].our_missionaries_img} missionariesTxt={aboutPageContents[0].our_missionaries_text}/>, 
-                <AboutSEEK subheading={aboutPageContents[0].seek_subheading} signupLink={aboutPageContents[0].seek_signup_link} seekDesc={aboutPageContents[0].what_is_seek_text} seekImg={aboutPageContents[0].what_is_seek_img}/>, 
+                <AboutFOCUS key="about-focus" subheading={aboutPageContents[0].focus_subheading} missionariesImg={aboutPageContents[0].our_missionaries_img} missionariesTxt={aboutPageContents[0].our_missionaries_text}/>, 
+                <AboutSEEK key="about-seek" subheading={aboutPageContents[0].seek_subheading} signupLink={aboutPageContents[0].seek_signup_link} seekDesc={aboutPageContents[0].what_is_seek_text} seekImg={aboutPageContents[0].what_is_seek_img}/>, 
                 <AboutSEEKHighlights 
+                    key="about-seek-highlights"
                     highlightImages={aboutPageContents[0].seek_highlights}
                     recapLink={aboutPageContents[0].seek_recap_link}
                     seeMoreLink={aboutPageContents[0].seek_see_more_link}
@@ -101,7 +98,7 @@ export default async function Events() {
            idRef={"aboutAlumni"}
             bgColor={"bg-cmu-maroon"} 
             heading={"Alumni"} 
-            sectionComponents={[<AboutAlumni subheading={aboutPageContents[0].alumni_subheading} vocations={alumniVocations[0].categories}/>]}/>
+            sectionComponents={[<AboutAlumni key="about-alumni" subheading={aboutPageContents[0].alumni_subheading} vocations={alumniVocations[0].categories}/>]}/>
           <Footer/>
       </div>
   );

@@ -5,8 +5,6 @@ import { getSemesterlyRetreats, getPreviousRetreats, getAllHeadersAndSubHeaders 
 import Footer from "../../../components/Footer";
 import grabText from '../../../constants/helpers';
 
-const eventsQuote = '"If we wish to be perfect, we have nothing more to do than to perform the ordinary duties of the day well. -St. John Henry Newman"'
-
 
 export default async function Retreats() {
   const retreatInfo = await getSemesterlyRetreats();
