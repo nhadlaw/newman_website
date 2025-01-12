@@ -483,3 +483,25 @@ export async function getAlumniVocations() {
 
     return client.fetch(alumniVocationsQuery);
 }
+
+
+export async function getAboutPageButtons() {
+    const client = createClient({
+        projectId: "ds40fytf",
+        dataset: "production",
+        apiVersion: "2024-12-18",
+    });
+
+    // type=project indicates this query is going to fetch all of our testimonies
+    // the fields inside the query is what we are going to be grabbing from inside of it
+    const aboutPageButtonsQuery = groq`*[_type == "aboutPageButtons"]{
+        _id,
+        _createAt,
+        student,
+        "what_is_newman_img":what_is_newman_img.asset->url,
+    }`
+
+    //ignore the reg squiggly line for aboutPageButtonsQuery that is just a typescript issue
+    return client.fetch(aboutPageButtonsQuery)
+
+}

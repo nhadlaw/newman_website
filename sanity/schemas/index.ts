@@ -13,9 +13,9 @@ import bibleStudySchema from "./bible-study-schema";
 import allHeadersAndDescriptionsSchema from "./all-headers-subheaders-desc-schema";
 import aboutPageContents from "./about-page-schema";
 import alumniVocations from "./alumni-vocations-schema";
-
+import aboutPageButtons from "./about-page-buttons-schema";
 const schemas = [homepageSlideshow, testimonies, upcomingEventsSchema, churchLituragyOptions, 
     officersAndMinisters, weeklyEvents, eventHighlightsSchema, semesterlyRetreatsSchema, 
     previousRetreatsSchema, staffDescriptions, chitChatsDisplay, bibleStudySchema, 
-    aboutPageContents, alumniVocations, allHeadersAndDescriptionsSchema];
+    aboutPageContents, alumniVocations, allHeadersAndDescriptionsSchema, aboutPageButtons];
 export default schemas;

@@ -6,7 +6,7 @@ import Image from 'next/image';
 const categories = [
     {
         title: 'What Is Newman?',
-        image: '/JohnHenryNewman.svg',
+        image: '/AboutJohnHenryNewman.svg',
         link: '#aboutNewman'
     },
     {
@@ -21,7 +21,7 @@ const categories = [
     },
     {
         title: 'Service',
-        image: '/SacredHeart.svg',
+        image: '/ServiceIcon.svg',
         link: '#aboutService'
     },
     {
@@ -31,7 +31,7 @@ const categories = [
     },
     {
         title: 'Alumni',
-        image: '/OurMissionaries.png',
+        image: '/Alumni.png',
         link: '#aboutAlumni'
     }
 ]
@@ -53,9 +53,9 @@ const ButtonRow = () => {
         {categories.map((category) => (
           <a key={category.title} href={category.link} className='flex flex-col items-center'>
             <div
-              className={`flex relative items-center justify-center w-[160] h-[160] border rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-white`}
+              className={`flex relative items-center justify-center border-2 border-white w-[160] h-[160] rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:border-border-white`}
             >
-              <div className={`flex relative items-center justify-center w-[150] h-[150] border-2 rounded-full bg-white bg-opacity-100 overflow-hidden`}>
+              <div className={`flex relative items-center justify-center w-[150] h-[150] rounded-full bg-opacity-0 overflow-hidden`}>
              {/* Image in the center */}
                 <Image
                 src={category.image}
