@@ -2,8 +2,10 @@
 import ExpandableTestimonyNew from "./ExpandableTestimonyNew";
 import React, { useState, useEffect } from "react";
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
-import { headerStyling, sectionMargin } from "../constants/stylingConstants";
+import { headerStyling, sectionMargin, subheadingStyling } from "../constants/stylingConstants";
 import { useIsVisible } from "../src/app/hooks/useIsVisible";
+
+const whyNewmanSubheading = "Discover the incredible graces and gifts that the Newman club has poured into the lives of both current students and alumni, fostering holiness, joy, and growth within a supportive community that inspires learning and purpose!";
 
 const Testimonies = ({ testimonies }) => {
   const { isVisible, elementRef } = useIsVisible({
@@ -82,7 +84,8 @@ const Testimonies = ({ testimonies }) => {
     >
       <div className="container mx-auto py-8">
         <p className={`text-center font-bold text-black text-7xl sm:text-8xl pr-8 pl-8`}>Why Newman?</p>
-        <div className="flex flex-col items-center mb-4 mt- gap-8">
+        <p className={subheadingStyling}>{whyNewmanSubheading}</p>
+        <div className="flex flex-col items-center mb-4 mt-32 gap-8">
            {!isMobile && <div className="flex flex-row text-black">
             {testimoniesCols.map(function(items, index){
               return (
