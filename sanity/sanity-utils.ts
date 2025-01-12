@@ -499,6 +499,11 @@ export async function getAboutPageButtons() {
         _createAt,
         student,
         "what_is_newman_img":what_is_newman_img.asset->url,
+        "community_img":community_img.asset->url,
+        "oratory_img":oratory_img.asset->url,
+        "service_img":service_img.asset->url,
+        "focus_img":focus_img.asset->url,
+        "alumni_img":alumni_img.asset->url,
     }`
 
     //ignore the reg squiggly line for aboutPageButtonsQuery that is just a typescript issue

@@ -14,6 +14,7 @@ import allHeadersAndDescriptionsSchema from "./all-headers-subheaders-desc-schem
 import aboutPageContents from "./about-page-schema";
 import alumniVocations from "./alumni-vocations-schema";
 import aboutPageButtons from "./about-page-buttons-schema";
+
 const schemas = [homepageSlideshow, testimonies, upcomingEventsSchema, churchLituragyOptions, 
     officersAndMinisters, weeklyEvents, eventHighlightsSchema, semesterlyRetreatsSchema, 
     previousRetreatsSchema, staffDescriptions, chitChatsDisplay, bibleStudySchema, 

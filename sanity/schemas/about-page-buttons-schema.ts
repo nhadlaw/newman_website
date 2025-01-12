@@ -1,6 +1,6 @@
 const aboutPageButtons = {
     name: 'aboutPageButtons',
-    title: 'aboutPageButtons',
+    title: 'About Page Buttons',
     type: 'document',
     fields: [
         {

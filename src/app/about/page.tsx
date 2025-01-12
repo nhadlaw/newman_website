@@ -1,6 +1,6 @@
 import BackToTop from "../../../components/BackToTop";
 import Footer from "../../../components/Footer";
-import { getAboutPageContents, getAlumniVocations } from "../../../sanity/sanity-utils";
+import { getAboutPageContents, getAlumniVocations, getAboutPageButtons } from "../../../sanity/sanity-utils";
 import AboutPageSection from "../../../components/AboutPageSection";
 import AboutNewman from "../../../components/aboutPage/AboutNewman";
 import AboutOratory from "../../../components/aboutPage/AboutOratory";
@@ -20,8 +20,7 @@ import Navbar from "../../../components/Navbar";
 export default async function Events() {
   const aboutPageContents = await getAboutPageContents();
   const alumniVocations = await getAlumniVocations();
-
-  console.log(alumniVocations);
+  const buttonImages = await getAboutPageButtons();
 
   const communityItems = [
     {
@@ -53,7 +52,7 @@ export default async function Events() {
       <div style={{overflowX: "hidden"}} className='bg-cmu-maroon'>
           <Navbar/>
           <BackToTop/>
-          <AboutPageButtons/>
+          <AboutPageButtons buttonImages={buttonImages[0]}/>
           <AboutPageSection 
             bgColor={"bg-cmu-maroon"} 
             heading={"What is Newman?"} 
