@@ -17,7 +17,7 @@ const BibleStudyDisplay = ({ items }) => {
                 Join a Bible Study
             </p>
             <p className={subheadingStyling}>
-            We offer Bible study groups for undergrad and grad women, as well as student-athletes at Carnegie Mellon. All are welcome—no religious background or skill level required! Contact anyone listed below or email us at newman@gmail.com to get connected.            </p>
+            We offer Bible study groups for undergrad and grad women, as well as student-athletes at Carnegie Mellon. All are welcome—no religious background or skill level required! Contact anyone listed below or email us at cmunewman@gmail.com to get connected. </p>
             {/* INFO COMPONENTS */}
             <div className="container mx-auto py-8 px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -38,7 +38,7 @@ const WeeklyEventsGrid = () => {
             linkName: "Find Service Opportunities",
             description: "Looking for a way to help out? Find numerous opportunities with us!", 
             imageUrl: "/ServiceIcon.png",
-            href: '/events/#weeklyEvents' 
+            href: '/about/#aboutService' 
         },
     ]
 return (

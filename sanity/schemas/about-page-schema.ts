@@ -133,8 +133,8 @@ const aboutPageContents = {
 
         },
         {
-            name: 'service_email_link',
-            title: 'Service Email Link',
+            name: 'service_see_more_link',
+            title: 'Service See More Link',
             type: 'string',
 
         },

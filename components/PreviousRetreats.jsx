@@ -6,6 +6,8 @@ import { headerStyling, subheadingStyling } from "../constants/stylingConstants"
 
 const previousRetreatsInfo = "Check out some of our previous Retreat themes!";
 
+const RetreatsGraphics = ['RetreatsGraphic1.svg']
+
 export default function Slideshow({ items }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { isVisible, elementRef } = useIsVisible({
@@ -55,7 +57,7 @@ export default function Slideshow({ items }) {
           </div>
 
           {/* Right side (Title and Description) */}
-          <div className={`${items[currentSlide].bg_color} text-white flex flex-col justify-center md:h-[85vh] md:pt-16`}>
+          <div className={`${items[currentSlide].bg_color} text-white flex flex-col justify-center md:h-[90vh] md:pt-16`}>
             <div className='p-16'>
               <h2 className="text-4xl font-bold">{items[currentSlide].retreat_theme}</h2>
               <p className="text-lg font-light mb-4">{items[currentSlide].retreat_semester}</p>
@@ -63,8 +65,8 @@ export default function Slideshow({ items }) {
               {items[currentSlide].svg_image && <img
                 src={items[currentSlide].svg_image}
                 alt={items[currentSlide].retreat_theme}
-                className="mt-6 object-cover overflow-hidden object-cover relative bottom-0" 
-                style={{ clipPath: "inset(auto auto 0 auto)" }}
+                className="w-80 z-0 mt-6 object-cover overflow-hidden object-cover relative bottom-0" 
+                style={{ clipPath: "inset(auto auto auto)", overflow: 'hidden'}}
 
               />}
             </div>

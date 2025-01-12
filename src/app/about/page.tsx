@@ -81,7 +81,7 @@ export default async function Events() {
             heading={"Service"} 
             idRef={"aboutService"}
             sectionComponents={
-                [<AboutService subheading={aboutPageContents[0].service_subheading} discordLink={aboutPageContents[0].service_discord_link} emailLink={aboutPageContents[0].service_email_link} />, 
+                [<AboutService subheading={aboutPageContents[0].service_subheading} discordLink={aboutPageContents[0].service_discord_link} seeMoreLink={aboutPageContents[0].service_see_more_link} />, 
                 <AboutServiceOpportunities serviceOpportunities={aboutPageContents[0].service_opportunity_images} subheading={"Check out some of our favorite ways to help out"}/>]}/>
           <AboutPageSection 
             bgColor={"bg-cmu-maroon"} 

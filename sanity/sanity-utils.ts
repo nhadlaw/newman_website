@@ -431,7 +431,7 @@ export async function getAboutPageContents() {
         "alumni_link_img": alumni_link_img.asset->url,
         service_subheading,
         service_discord_link,
-        service_email_link,
+        service_see_more_link,
         service_opportunity_images[]{
             "service_image": service_image.asset->url,
             title,

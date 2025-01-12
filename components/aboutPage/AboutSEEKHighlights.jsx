@@ -56,7 +56,7 @@ const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
                 {/* Slideshow Section */}
                 <div className="flex-1 relative overflow-hidden bg-cmu-maroon-lighter shadow-lg rounded-sm">
                 {highlightImages.map((item, index) => (
-                    <div className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
+                    <div key={index} className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
                         index === currentIndex ? 'opacity-100' : 'opacity-0'
                     }`}>
                         <img

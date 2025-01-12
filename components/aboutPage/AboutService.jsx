@@ -4,17 +4,17 @@ import ServiceContactLinks from './ServiceContactLinks';
 
 
 
-const AboutService = ({subheading, discordLink, emailLink}) => {
+const AboutService = ({subheading, discordLink, seeMoreLink}) => {
     return (
         <div>
             <div className="flex flex-col items-center">
                 <div className="items-center"  style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
                     <div className={sectionTextStyle}>
                         <p >{subheading}</p>
-                        <ServiceContactLinks/>
+                        <ServiceContactLinks discordLink={discordLink} seeMoreLink={seeMoreLink}/>
                     </div>
                     <Image
-                    src={'/ServiceIconWhite.png'}
+                    src={'/ServiceIcon.svg'}
                     width={500}
                     height={500}
                     alt={"Service Icon"}
