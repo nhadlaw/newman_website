@@ -61,34 +61,36 @@ export default function DiagonalGrid({ items }) {
         <div className="flex flex-col items-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {visibleItems.map((item, index) => (
-                <div key={index} className="h-64 relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg flex flex-col"
-                >
-                  <a
-                      key={item.event_name}
-                      href="/"
-                  >
-                      <div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{
-                          backgroundImage: `url(${item.image})`,
-                          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                      }}
-                      ></div>
-                      <div
-                      className="absolute inset-0 bg-gray-800 bg-opacity-70 flex flex-col text-white font-bold p-4"
-                      style={{
-                          clipPath: "polygon(0 0, 100% 0, 0 100%)",
-                      }}
-                      >
-                      <div style={{ marginTop: "20px" }}>
+                <div
+                key={index}
+                className="h-64 relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg flex flex-col"
+              >
+                <a href="/">
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${item.image})`,
+                    }}
+                  ></div>
+                  {/* Diagonal Overlay */}
+                  <div
+                    className="absolute inset-0 bg-gray-800 bg-opacity-70"
+                    style={{
+                      clipPath: "polygon(0 0, 100% 0, 0 100%)", // Diagonal shape
+                    }}
+                  ></div>
+                  {/* Text Content */}
+                  <div className="absolute top-1 flex flex-col justify-center text-white font-bold p-4 z-10">
                           <p className="text-xl">{item.event_name}</p>
                           <p className="font-semibold text-lg">{item.event_desc}</p>
                           <p className="font-light text-md max-w-32">{item.event_location}</p>
-                      </div>
-                      </div>
-                      <div className="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition"></div>
-                  </a>
-                </div>
+                  </div>
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition"></div>
+                </a>
+              </div>
+              
               ))}
           </div>
           <p className="mt-4 text-xl">{currentIndex + visibleItems.length} of {items.length}</p>
