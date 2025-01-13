@@ -54,11 +54,14 @@ const AlumniVocations = ({ alumniVocations }) => {
         {categories.map((category) => (
           <button key={category} onClick={() => setSelectedCategory(category)}>
             <div
+              style={{width: '120px', height: '120px'}}
               className={`${selectedCategory === category ? 'bg-white' : 'bg-cmu-maroon-darker'} 
-              flex items-center justify-center w-40 h-40 border rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-white`}
+              flex items-center justify-center border rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:bg-white`}
             >
-              <div className={`flex items-center justify-center w-[135] h-[135] border-1 rounded-full bg-cmu-maroon-lighter bg-opacity-100 overflow-hidden`}>
-                <p className='text-white font-bold px-4 text-center text-xl'>
+              <div 
+                style={{width: '110px', height: '110px'}}
+                className={`flex items-center justify-center border-1 rounded-full bg-cmu-maroon-lighter bg-opacity-100 overflow-hidden`}>
+                <p className='text-white font-bold px-4 text-center'>
                   {category === 'All' ? 'All Vocations' : category}
                 </p>
               </div>

@@ -4,6 +4,25 @@ import { useState, useEffect } from "react";
 
 const ImageCarousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobile(false);
+      } else if (window.innerWidth >= 750) {
+       // Medium screens
+        setIsMobile(false)
+      } else {
+       // Small screens
+        setIsMobile(true)
+      }
+    };
+    updateVisibleCount(); // Set initial value
+    window.addEventListener("resize", updateVisibleCount);
+
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
@@ -31,7 +50,7 @@ const ImageCarousel = ({ items }) => {
             height: "3rem",
             color: "rgba(31,103,226,0.6)",
           }}
-          className="absolute top-56 right-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-64 right-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
           onClick={handlePrev}
         />
         <BsArrowRightCircleFill
@@ -42,7 +61,7 @@ const ImageCarousel = ({ items }) => {
             height: "3rem",
             color: "rgba(31,103,226,0.6)",
           }}
-          className="absolute top-56 left-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-64 left-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
           onClick={handleNext}
         />
         {items.map((item, index) => {
@@ -67,12 +86,12 @@ const ImageCarousel = ({ items }) => {
           return (
             <div
               key={index}
-              className={`shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${zIndex} ${translateX} ${scale}`}
+              className={`w-64 sm:w-72 md:w-96 max-h-96 md:max-h-72 overflow-hidden shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${zIndex} ${translateX} ${scale}`}
             >
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className={`w-64 md:w-96 rounded-xl ${imageOpacity} transition-all duration-500 ease-in-out`}
+                className={`w-full object-fill rounded-xl ${imageOpacity} transition-all duration-500 ease-in-out`}
               />
               {isCenter && (
                 <div
@@ -86,7 +105,7 @@ const ImageCarousel = ({ items }) => {
                   <p style={{ fontSize: "10px" }}>{items[index].event_date}</p>
                 </div>
               )}
-              {isCenter && (
+              {isCenter && !isMobile && (
                 <div
                   className="absolute bottom-0 w-full text-white text-center p-4 rounded-lg"
                   style={{
@@ -96,6 +115,11 @@ const ImageCarousel = ({ items }) => {
                   <p style={{ fontSize: "10px" }}>{items[index].event_desc}</p>
                 </div>
               )}
+              {isMobile && 
+                <div className="p-4">
+                  <p style={{fontSize: '10px'}} className="text-white">{items[index].event_desc}</p>
+                </div>
+              }
             </div>
           );
         })}
