@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: newman-www
-        image: registry.digitalocean.com/pjh/newman-www@sha256:e96a8e2bcf668e502bfda57480ccb47935e225f8fb98b41dcc495cd088b64de5
+        image: registry.digitalocean.com/pjh/newman-www@sha256:f31eb8206138a2b9eb90703755cfce9406968284331fd04ba0c85d6292db0818
         ports:
         - containerPort: 3000
 

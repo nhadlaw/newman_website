@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: newman-www-temp-ingress
+  name: newman-www-ingress
   annotations:
     cert-manager.io/issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - newman.servermogul.com
-      secretName: newman-www-temp-tls
+        - cmunewman.com
+      secretName: newman-www-tls
   rules:
-    - host: newman.servermogul.com
+    - host: cmunewman.com
       http:
         paths:
           - path: /
