@@ -63,6 +63,7 @@ export async function getUpcomingEvents() {
         event_name,
         event_desc,
         event_location,
+        event_starting_date,
         "image":image.asset->url,
     }`
 

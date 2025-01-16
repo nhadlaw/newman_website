@@ -22,6 +22,12 @@ const upcomingEventsSchema = {
 
         },
         {
+            name: 'event_starting_date',
+            title: 'Event Starting Date',
+            type: 'date',
+
+        },
+        {
             name: 'image',
             title: 'Image',
             type: 'image',

@@ -15,7 +15,7 @@ export default async function LitAndPray() {
 
   return (
       <div style={{overflowX: "hidden"}} className="bg-black">
-          <PageBanner pageName={"Lituragy & Prayer"} pageDesc={grabText('litAndPray_subheading', allHeaders)} pageImg={allHeaders[0].litAndPray_heading_img}/>
+          <PageBanner pageName={"Liturgy & Prayer"} pageDesc={grabText('litAndPray_subheading', allHeaders)} pageImg={allHeaders[0].litAndPray_heading_img}/>
           <BackToTop/>
           <div className="bg-black pb-28">
             <SacramentOptions subheading={grabText('sacraments_subheading', allHeaders)}/>

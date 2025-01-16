@@ -16,7 +16,7 @@ const ChitChatsCard = ({ chitChat }) => {
       chitChatNonExpandedDesc = chitChat.description
     } else {
       isLonger = true;
-      chitChatNonExpandedDesc = `${chitChat.description.slice(0, 100)}...`
+      chitChatNonExpandedDesc = `${chitChat.description.slice(0, 60)}...`
     }
   }
 

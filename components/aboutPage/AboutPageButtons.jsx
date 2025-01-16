@@ -55,18 +55,18 @@ const ButtonRow = ({buttonImages}) => {
         {categories.map((category) => (
           <a key={category.title} href={category.link} className='flex flex-col items-center'>
             <div
-              style={{width: '200px', height: '200px'}}
+              style={{width: '150px', height: '150px'}}
               className={`flex relative items-center justify-center  border-4 border-white rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 hover:border-border-white`}
             >
               <div 
-                style={{width: '190px', height: '190px'}}
+                style={{width: '140px', height: '140px'}}
                 className={`flex relative items-center justify-center border-cmu-maroon-darker border-2 rounded-full bg-opacity-100 bg-cmu-maroon-lighter overflow-hidden`}>
              {/* Image in the center */}
                 <Image
                 src={category.image}
                 alt="Button Image"
-                width={300}
-                height={300}
+                width={200}
+                height={200}
                 className="z-0 opacity-80 object-fill hover:opacity-100"
                 />
               </div>
