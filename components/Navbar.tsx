@@ -11,7 +11,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="fixed w-full h-24 shadow-xl bg-[rgba(114,28,64,0.95)] z-20">
+        <nav className="fixed w-full h-24 shadow-xl bg-[rgba(114,28,64,0.95)] z-40">
             <div className="flex justify-between items-center h-full w-full px-8 2xl:px-16">
                 <Link href="/">
                     <Image

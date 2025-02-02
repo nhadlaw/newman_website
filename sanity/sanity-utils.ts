@@ -1,11 +1,13 @@
 import { createClient, groq } from "next-sanity";
 import { Project } from "../types/Project";
+import { cache } from "react"; // Import cache for revalidation
 
 export async function getHomepageSlideshowImgs() {
     const client = createClient({
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -19,7 +21,7 @@ export async function getHomepageSlideshowImgs() {
     }`
 
     //ignore the reg squiggly line for homepageSlideshowQuery that is just a typescript issue
-    return client.fetch(homepageSlideshowQuery)
+    return cache(async () => client.fetch(homepageSlideshowQuery))();
 
 }
 
@@ -28,6 +30,8 @@ export async function getTestimonies() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
+
     });
 
     // type=project indicates this query is going to fetch all of our testimonies
@@ -43,7 +47,7 @@ export async function getTestimonies() {
     }`
 
     //ignore the reg squiggly line for testimonyQuery that is just a typescript issue
-    return client.fetch(testimonyQuery)
+    return cache(async () => client.fetch(testimonyQuery))();
 
 }
 
@@ -53,6 +57,7 @@ export async function getUpcomingEvents() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our testimonies
@@ -68,7 +73,7 @@ export async function getUpcomingEvents() {
     }`
 
     //ignore the reg squiggly line for upcomingEventsQuery that is just a typescript issue
-    return client.fetch(upcomingEventsQuery)
+    return cache(async () => client.fetch(upcomingEventsQuery))();
 
 }
 
@@ -78,6 +83,7 @@ export async function getChurchLituraryOptionsSchema() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our testimonies
@@ -112,7 +118,7 @@ export async function getChurchLituraryOptionsSchema() {
     }`
 
     //ignore the reg squiggly line for churchLituragyOptionsQuery that is just a typescript issue
-    return client.fetch(churchLituragyOptionsQuery)
+    return cache(async () => client.fetch(churchLituragyOptionsQuery))();
 
 
 }
@@ -123,6 +129,7 @@ export async function getOfficersAndMinisters() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -175,7 +182,7 @@ export async function getOfficersAndMinisters() {
     }`
 
     //ignore the reg squiggly line for officersAndMinistersQuery that is just a typescript issue
-    return client.fetch(officersAndMinistersQuery)
+    return cache(async () => client.fetch(officersAndMinistersQuery))();
 
 }
 
@@ -184,6 +191,7 @@ export async function getWeeklyEvents(): Promise<Project[]> {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -201,7 +209,7 @@ export async function getWeeklyEvents(): Promise<Project[]> {
     }`
 
     //ignore the reg squiggly line for weeklyEventsQuery that is just a typescript issue
-    return client.fetch(weeklyEventsQuery)
+    return cache(async () => client.fetch(weeklyEventsQuery))();
 
 }
 
@@ -210,6 +218,7 @@ export async function getEventHighlights(): Promise<Project[]> {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -226,7 +235,7 @@ export async function getEventHighlights(): Promise<Project[]> {
     }`
 
     //ignore the reg squiggly line for eventHighlightsQuery that is just a typescript issue
-    return client.fetch(eventHighlightsQuery)
+    return cache(async () => client.fetch(eventHighlightsQuery))();
 
 }
 
@@ -236,6 +245,7 @@ export async function getSemesterlyRetreats() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -256,7 +266,7 @@ export async function getSemesterlyRetreats() {
     }`
 
     //ignore the reg squiggly line for semesterlyRetreatsInfoQuery that is just a typescript issue
-    return client.fetch(semesterlyRetreatsInfoQuery)
+    return cache(async () => client.fetch(semesterlyRetreatsInfoQuery))();
 
 }
 
@@ -266,6 +276,7 @@ export async function getPreviousRetreats() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -283,7 +294,7 @@ export async function getPreviousRetreats() {
     }`
 
     //ignore the reg squiggly line for previousRetreatsInfoQuery that is just a typescript issue
-    return client.fetch(previousRetreatsInfoQuery)
+    return cache(async () => client.fetch(previousRetreatsInfoQuery))();
 
 }
 
@@ -293,6 +304,7 @@ export async function getStaffDescriptions() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -310,7 +322,7 @@ export async function getStaffDescriptions() {
     }`
 
     //ignore the reg squiggly line for staffDescriptionsQuery that is just a typescript issue
-    return client.fetch(staffDescriptionsQuery)
+    return cache(async () => client.fetch(staffDescriptionsQuery))();
 
 }
 
@@ -320,6 +332,7 @@ export async function getChitChatsDisplay() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -333,7 +346,7 @@ export async function getChitChatsDisplay() {
     }`
 
     //ignore the reg squiggly line for chitChatsDisplayQuery that is just a typescript issue
-    return client.fetch(chitChatsDisplayQuery)
+    return cache(async () => client.fetch(chitChatsDisplayQuery))();
 
 }
 
@@ -342,6 +355,7 @@ export async function getBibleStudies() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our projects
@@ -358,7 +372,7 @@ export async function getBibleStudies() {
     }`
 
     //ignore the reg squiggly line for bibleStudiesQuery that is just a typescript issue
-    return client.fetch(bibleStudiesQuery)
+    return cache(async () => client.fetch(bibleStudiesQuery))();
 
 }
 
@@ -368,6 +382,7 @@ export async function getAllHeadersAndSubHeaders() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // Define the GROQ query to fetch all fields from the schema
@@ -401,7 +416,7 @@ export async function getAllHeadersAndSubHeaders() {
     }`
 
     // Fetch and return the data
-    return client.fetch(headersAndSubHeadersQuery);
+    return cache(async () => client.fetch(headersAndSubHeadersQuery))();
 }
 
 
@@ -410,7 +425,8 @@ export async function getAboutPageContents() {
     const client = createClient({
         projectId: "ds40fytf",  // Replace with your projectId
         dataset: "production",  // Replace with your dataset name
-        apiVersion: "2024-12-18",  // Use the current API version
+        apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data  // Use the current API version
     });
 
     const aboutPageContentsQuery = groq`*[_type == "aboutPageContents"]{
@@ -455,7 +471,7 @@ export async function getAboutPageContents() {
         alumni_subheading
     }`;
 
-    return client.fetch(aboutPageContentsQuery);
+    return cache(async () => client.fetch(aboutPageContentsQuery))();
 }
 
 
@@ -465,7 +481,8 @@ export async function getAlumniVocations() {
     const client = createClient({
         projectId: "ds40fytf",  // Replace with your projectId
         dataset: "production",  // Replace with your dataset name
-        apiVersion: "2024-12-18",  // Use the current API version
+        apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data  // Use the current API version
     });
 
     const alumniVocationsQuery = groq`
@@ -482,7 +499,7 @@ export async function getAlumniVocations() {
         }      
     `
 
-    return client.fetch(alumniVocationsQuery);
+    return cache(async () => client.fetch(alumniVocationsQuery))();
 }
 
 
@@ -491,6 +508,7 @@ export async function getAboutPageButtons() {
         projectId: "ds40fytf",
         dataset: "production",
         apiVersion: "2024-12-18",
+        useCdn: false, // Disable CDN to always fetch fresh data
     });
 
     // type=project indicates this query is going to fetch all of our testimonies
@@ -508,6 +526,6 @@ export async function getAboutPageButtons() {
     }`
 
     //ignore the reg squiggly line for aboutPageButtonsQuery that is just a typescript issue
-    return client.fetch(aboutPageButtonsQuery)
+    return cache(async () => client.fetch(aboutPageButtonsQuery))();
 
 }

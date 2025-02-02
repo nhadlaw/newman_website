@@ -3,15 +3,17 @@ import React, { useState, useEffect } from "react";
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 
 const AlumniVocations = ({ alumniVocations }) => {
-  const categories = (alumniVocations).map(obj => obj.categoryName)
+  const categories = alumniVocations && (alumniVocations).map(obj => obj.categoryName)
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredAlumni =
+  let filteredAlumni = null;
+  if (alumniVocations) {
+    filteredAlumni =
     selectedCategory === "All"
       ? alumniVocations.flatMap((item) => item.individuals)
       : (alumniVocations.filter(item => item.categoryName === selectedCategory))[0].individuals;
-    
-  categories.unshift("All");
+      categories.unshift("All");
+  }    
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 1;
@@ -45,13 +47,16 @@ const AlumniVocations = ({ alumniVocations }) => {
         prevIndex + visibleCount
       );
     };
-    const visibleItems = filteredAlumni.slice(currentIndex, currentIndex + visibleCount);
+    let visibleItems = null;
+    if (filteredAlumni){
+      visibleItems = filteredAlumni.slice(currentIndex, currentIndex + visibleCount);
+    }
 
   return (
     <div className="">
       {/* Buttons for each category */}
       <div className="flex flex-wrap justify-center items-center gap-4 mb-6 mt-4">
-        {categories.map((category) => (
+        {categories && categories.map((category) => (
           <button key={category} onClick={() => setSelectedCategory(category)}>
             <div
               style={{width: '120px', height: '120px'}}
@@ -73,7 +78,7 @@ const AlumniVocations = ({ alumniVocations }) => {
       {/* Display selected category */}
       <div className='mt-16 flex flex-col items-center'>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-          {(isMobile ? visibleItems : filteredAlumni).map((person, index) => (
+          {filteredAlumni && (isMobile ? visibleItems : filteredAlumni).map((person, index) => (
             <div
               key={index}
               className="flex flex-col items-center text-center rounded-lg p-4 shadow-md"

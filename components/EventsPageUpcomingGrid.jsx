@@ -79,7 +79,7 @@ export default function DiagonalGrid({ items }) {
   return (
     <div className="container mx-auto py-8 px-8 w-full">
       <div className={`flex ${flexDir} items-center justify-center mb-4`} style={{width: '100%'}}>
-       {!bottomArrows && <button
+       {!bottomArrows && (newItems.length >= 4) && <button
           className="text-white rounded disabled:opacity-50"
           onClick={handlePrev}
           disabled={currentIndex === 0}
@@ -94,7 +94,7 @@ export default function DiagonalGrid({ items }) {
                 key={index}
                 className="h-64 relative group w-full aspect-square bg-cmu-maroon overflow-hidden shadow-lg rounded-lg flex flex-col"
               >
-                <a href="/">
+                <div>
                   {/* Background Image */}
                   <div
                     className="absolute inset-0 bg-cover bg-center"
@@ -117,7 +117,7 @@ export default function DiagonalGrid({ items }) {
                   </div>
                   {/* Hover Effect */}
                   <div className="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition"></div>
-                </a>
+                </div>
               </div>
               
               ))}
@@ -146,7 +146,7 @@ export default function DiagonalGrid({ items }) {
         </div>}
         {/* END OF BOTTOM ARROWS */}
 
-        {!bottomArrows && <button
+        {!bottomArrows && (newItems.length >= 4) && <button
           className="text-white disabled:opacity-50"
           onClick={handleNext}
           disabled={currentIndex + visibleCount >= newItems.length}

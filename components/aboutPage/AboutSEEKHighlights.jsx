@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from 'react';
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 import SeekExtraInfoButton from "./SeekExtraInfoButton";
@@ -9,16 +9,19 @@ const text = {
   description: "test desc",
 };
 
-const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
+const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hover, setHover] = useState(false);
 
-  // Automatically change slides every 3 seconds
+  // Automatically change slides every 3 seconds unless hovered
   useEffect(() => {
+    if (hover) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % highlightImages.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [highlightImages]);
+  }, [highlightImages, hover]);
 
   // Function to go to the next slide
   const goToNextSlide = () => {
@@ -51,49 +54,60 @@ const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
           <p className="text-lg mt-4 text-left text-white">
             Take a look at some of the highlights from this year's SEEK!
           </p>
-          <div className='flex flex-col md:flex-row md:items-center'>
-            <div className="flex flex-col h-[67vh] md:w-[50vw] relative mt-4">
-                {/* Slideshow Section */}
-                <div className="flex-1 relative overflow-hidden bg-cmu-maroon-lighter shadow-lg rounded-sm">
+          <div className="flex flex-col md:flex-row md:items-center">
+            <div
+              className="flex flex-col h-[67vh] md:w-[50vw] relative mt-4"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              {/* Slideshow Section */}
+              <div className="flex-1 relative overflow-hidden bg-cmu-maroon-lighter shadow-lg rounded-sm">
                 {highlightImages.map((item, index) => (
-                    <div key={index} className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
-                        index === currentIndex ? 'opacity-100' : 'opacity-0'
-                    }`}>
-                        <img
-                        key={index}
-                        src={item.highlight_image}
-                        alt={`Slide ${index}`}
-                        className={`w-full h-full object-cover`}
-                        
-                        />
-
-                    </div>
+                  <div
+                    key={index}
+                    className={`p-6 absolute w-full h-full object-cover transition-opacity duration-700 ${
+                      index === currentIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      key={index}
+                      src={item.highlight_image}
+                      alt={`Slide ${index}`}
+                      className={`w-full h-full object-cover`}
+                    />
+                  </div>
                 ))}
 
-                    {/* Left Chevron */}
-                    <button
-                        onClick={goToPrevSlide}
-                        className="absolute right-[51%] top-[90%] transform -translate-y-1/2 bg-white bg-opacity-80 text-black rounded-full focus:outline-none hover:bg-opacity-100"
-                    >
-                        <HiChevronLeft className='text-2xl'/>
-                    </button>
+                {/* Left Chevron */}
+                <button
+                  onClick={goToPrevSlide}
+                  className="absolute right-[51%] top-[90%] transform -translate-y-1/2 bg-white bg-opacity-80 text-black rounded-full focus:outline-none hover:bg-opacity-100"
+                >
+                  <HiChevronLeft className="text-2xl" />
+                </button>
 
-                    {/* Right Chevron */}
-                    <button
-                        onClick={goToNextSlide}
-                        className="absolute left-[51%] top-[90%] transform -translate-y-1/2 bg-white bg-opacity-80 text-black rounded-full focus:outline-none hover:bg-opacity-100"
-                    >
-                        <HiChevronRight className='text-2xl'/>
-                    </button>
-                </div>
+                {/* Right Chevron */}
+                <button
+                  onClick={goToNextSlide}
+                  className="absolute left-[51%] top-[90%] transform -translate-y-1/2 bg-white bg-opacity-80 text-black rounded-full focus:outline-none hover:bg-opacity-100"
+                >
+                  <HiChevronRight className="text-2xl" />
+                </button>
+              </div>
             </div>
-                <div className='flex-col gap-8 mt-16 md:mt-0'>
-                    <SeekExtraInfoButton buttonTitle={"SEEK Replay"} buttonDesc={`Check out live talks from SEEK ${(new Date()).getFullYear()} here`} buttonLink={recapLink}/>
-                    <SeekExtraInfoButton buttonTitle={"Learn More"} buttonDesc={"Find out more about SEEK"} buttonLink={seeMoreLink}/>
-
-                </div>
+            <div className="flex-col gap-8 mt-16 md:mt-0">
+              <SeekExtraInfoButton
+                buttonTitle={"SEEK Replay"}
+                buttonDesc={`Check out live talks from SEEK ${(new Date()).getFullYear()} here`}
+                buttonLink={recapLink}
+              />
+              <SeekExtraInfoButton
+                buttonTitle={"Learn More"}
+                buttonDesc={"Find out more about SEEK"}
+                buttonLink={seeMoreLink}
+              />
+            </div>
           </div>
-              
         </div>
       </div>
     </div>
@@ -101,3 +115,4 @@ const AboutSEEKHighlights = ({ highlightImages, recapLink, seeMoreLink}) => {
 };
 
 export default AboutSEEKHighlights;
+

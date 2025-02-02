@@ -21,14 +21,14 @@ const AboutSEEK = ({subheading, signupLink, seekDesc, seekImg}) => {
                 </a>
             </div>
             <div className="items-center"  style={{width: "100%", display:"flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"} }>
-                    <div className='flex flex-col w-[70%] lg:w-[45%] mt-8'>
+                    <div className='flex flex-col w-[70%] lg:w-[35%] mt-8'>
                         <p className={'text-4xl font-bold mt-4 text-left text-white'}>What is SEEK?</p>
                         <p className={'text-2xl font-light mt-4 text-left text-white'}>{seekDesc}</p>
                     </div>
                     <Image
                     src={seekImg}
-                    width={400}
-                    height={400}
+                    width={700}
+                    height={700}
                     alt={"About SEEK"}
                     className="rounded-lg pt-16 lg:pl-16"
                     />

@@ -88,11 +88,12 @@ export default async function Events() {
                 <AboutSEEKHighlights 
                     key="about-seek-highlights"
                     highlightImages={aboutPageContents[0].seek_highlights}
-                    recapLink={aboutPageContents[0].seek_recap_link}
+                    recapLink={aboutPageContents[0].seek_recaplink}
                     seeMoreLink={aboutPageContents[0].seek_see_more_link}
                 />
             ]}
           />
+          {/** ADD THE SECTION BELOW BACK IN WHEN WE HAVE THE LIST OF ALUMNI VOCATIONS */}
           <AboutPageSection 
            idRef={"aboutAlumni"}
             bgColor={"bg-cmu-maroon"} 

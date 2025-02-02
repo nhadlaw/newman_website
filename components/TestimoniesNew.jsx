@@ -73,7 +73,6 @@ const Testimonies = ({ testimonies }) => {
   // const allItemsTestCols = organizeIntoColumns(allItemsTest, 3);
 
   const testimoniesCols = organizeIntoColumns([...testimonies], gridCount)
-  console.log('visible Items: ', testimoniesCols)
 
   return (
     <div

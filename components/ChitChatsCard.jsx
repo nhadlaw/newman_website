@@ -21,7 +21,7 @@ const ChitChatsCard = ({ chitChat }) => {
   }
 
   return (
-    <div className="max-w-72 mx-auto bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+    <div className="max-w-72 mx-auto bg-[rgba(31,103,226,0.6)] shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
         
         {/* Top Section */}
         <div className="relative h-80 shadow-md">
@@ -35,14 +35,14 @@ const ChitChatsCard = ({ chitChat }) => {
 
         {/* Bottom Section */}
         <div className={`p-4 ${isExpanded ? 'h-auto' : 'h-40'}`}>
-          <h2 className="text-xl font-bold text-gray-800">{chitChat.topic}</h2>
-          <p className="text-gray-600 text-sm mt-2">
+          <h2 className="text-xl font-bold text-white">{chitChat.topic}</h2>
+          <p className="text-white text-sm mt-2">
             {isExpanded ? chitChat.description : chitChatNonExpandedDesc}
           </p>
         { isLonger &&   
         <button
             onClick={toggleDescription}
-            className="text-blue-500 text-sm mt-2"
+            className="text-blue-800 text-sm mt-2"
           >
             {isExpanded ? "See Less" : "See More"}
           </button>}

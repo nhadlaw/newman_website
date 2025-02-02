@@ -4,12 +4,14 @@ const tempText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d
 import React from "react";
 import { eventsPageSubHeadingStyle, eventsPageSubHeadingTextStyle } from '../../constants/stylingConstants';
 import { FaPlay } from 'react-icons/fa';
+import Link from 'next/link'
 
 const SeekExtraInfoButton = ({buttonTitle, buttonDesc, buttonLink}) => {
+    console.log('button link: ', buttonLink)
     return (
         <div className='md:ml-12 mt-4'>
-            <a
-                href={""}
+           {buttonLink &&  <a
+                href={buttonLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 >
@@ -21,7 +23,7 @@ const SeekExtraInfoButton = ({buttonTitle, buttonDesc, buttonLink}) => {
                         <p className={'z-10 font-light text-xl text-white text-center pt-2'}>{buttonDesc}</p>
                     </div>
                 </div>
-            </a>
+            </a>}
         </div>
     )
 }

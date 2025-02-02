@@ -35,7 +35,7 @@ const AboutFOCUS = ({subheading, missionariesImg, missionariesTxt}) => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ width: "300px" }}
-            className="text-center mt-4 text-white border-2 border-white px-8 py-4 text-xl font-medium rounded shadow-md hover:bg-white hover:text-indigo-700 hover:shadow-lg transition-all duration-300"
+            className="text-center mt-4 text-white border-2 border-white px-8 py-4 text-xl font-medium rounded shadow-md hover:bg-white hover:text-cmu-maroon hover:shadow-lg transition-all duration-300"
           >
             See Our Missionaries
           </a>

@@ -1,6 +1,7 @@
 "use client";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 
 const ImageCarousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,29 +40,29 @@ const ImageCarousel = ({ items }) => {
   }, [items.length]);
 
   return (
-    <div className="relative w-[2/3] h-[600px] items-center overflow-hidden bottom-8">
+    <div className="my-16 bg-[rgba(31,103,226,0.6)] relative w-[2/3] h-[650px] items-center overflow-hidden bottom-8">
       {/* Image Container */}
-      <div className="relative flex items-center gap-0 justify-center w-full h-full">
-        <BsArrowLeftCircleFill
+      <div className="relative flex items-center gap-0 justify-center w-full h-full pb-32 pt-32">
+        <HiChevronLeft
           style={{
             position: "relative",
             filter: "drop-shadow(0px 0px 3px #555)",
-            width: "3rem",
-            height: "3rem",
-            color: "rgba(31,103,226,0.6)",
+            width: "2.5rem",
+            height: "2.5rem",
+            color: "white",
           }}
-          className="absolute top-64 right-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-64 right-2 z-20 p-2 bg-blue-700 text-black rounded-full shadow-md hover:bg-blue-900"
           onClick={handlePrev}
         />
-        <BsArrowRightCircleFill
+        <HiChevronRight
           style={{
             position: "relative",
             filter: "drop-shadow(0px 0px 3px #555)",
-            width: "3rem",
-            height: "3rem",
-            color: "rgba(31,103,226,0.6)",
+            width: "2.5rem",
+            height: "2.5rem",
+            color: "white",
           }}
-          className="absolute top-64 left-4 z-0 p-2 bg-white text-black rounded-full shadow-md hover:bg-gray-700"
+          className="absolute top-64 left-2 z-20 p-2 bg-blue-700 text-black rounded-full shadow-md hover:bg-blue-900"
           onClick={handleNext}
         />
         {items.map((item, index) => {
@@ -86,16 +87,16 @@ const ImageCarousel = ({ items }) => {
           return (
             <div
               key={index}
-              className={`w-64 sm:w-72 md:w-96 max-h-96 md:max-h-72 overflow-hidden shadow-xl absolute transition-all duration-500 ease-in-out rounded-lg ${zIndex} ${translateX} ${scale}`}
+              className={`w-64 sm:w-72 md:w-96 max-h-96 md:max-h-72 overflow-hidden shadow-xl absolute transition-all duration-500 ease-in-out ${zIndex} ${translateX} ${scale}`}
             >
               <img
                 src={image}
                 alt={`Slide ${index}`}
-                className={`w-full object-fill rounded-xl ${imageOpacity} transition-all duration-500 ease-in-out`}
+                className={`w-full object-fill ${imageOpacity} transition-all duration-500 ease-in-out`}
               />
               {isCenter && (
                 <div
-                  className="absolute top-0 w-full text-white text-left p-4 rounded-t-lg"
+                  className="absolute top-0 w-full text-white text-left p-6"
                   style={{
                     background: "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))",
                   }}
@@ -107,7 +108,7 @@ const ImageCarousel = ({ items }) => {
               )}
               {isCenter && !isMobile && (
                 <div
-                  className="absolute bottom-0 w-full text-white text-center p-4 rounded-lg"
+                  className="absolute bottom-0 w-full text-white text-center p-4"
                   style={{
                     background: "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))",
                   }}
