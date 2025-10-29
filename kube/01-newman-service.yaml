@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: newman-service
+spec:
+  selector:
+    app.kubernetes.io/name: newman
+    app.kubernetes.io/instance: newman-v1
+    app.kubernetes.io/component: frontend
+    app: newman
+  ports:
+    - port: 3000

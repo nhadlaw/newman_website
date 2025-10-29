@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newman-deployment
+  labels:
+    app.kubernetes.io/name: newman
+    app.kubernetes.io/instance: newman-v1
+    app.kubernetes.io/component: frontend
+    app: newman
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: newman
+      app.kubernetes.io/instance: newman-v1
+      app.kubernetes.io/component: frontend
+      app: newman
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: newman
+        app.kubernetes.io/instance: newman-v1
+        app.kubernetes.io/component: frontend
+        app: newman
+    spec:
+      containers:
+      - name: newman
+        image: localhost/newman:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+
